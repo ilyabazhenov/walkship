@@ -15,17 +15,18 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="press/screenshots/mac-home-light.png">
-    <img src="press/screenshots/mac-home-dark.png" alt="Walkship на Mac" width="860">
+    <source media="(prefers-color-scheme: light)" srcset="press/screenshots/ru/mac-home-light.png">
+    <img src="press/screenshots/ru/mac-home-dark.png" alt="Walkship на Mac" width="860">
   </picture>
 </p>
 
 Walkship — голосовой партнёр для твоих проектов. Обсуждаешь фичу на прогулке, а ассистент знает твой код, историю
 git и прошлые обсуждения. Разговор превращается в решения, открытые вопросы и фичи с критериями готовности. Одно
-нажатие — и Claude Code реализует фичу в отдельной ветке на твоём Mac, прогоняет проверки и присылает пуш на телефон.
+нажатие — и твой агент, Claude Code или Codex, реализует фичу в отдельной ветке на твоём Mac, прогоняет проверки и присылает пуш на телефон.
 Обсуждаешь результат голосом, говоришь «открывай» — и пул-реквест готов.
 
-> **Бета.** Интерфейс и голос пока только на русском.
+> **Бета.** Walkship говорит по-русски и по-английски — одна настройка для экранов, ассистента и голоса. Английский
+> появится в версии 1.6, текущая сборка 1.5 — только на русском.
 
 ## Как это работает
 
@@ -41,13 +42,15 @@ MCP-сервер для твоих агентов; фразы без связи 
 ## Всё на твоём Mac
 
 У Walkship нет облака и аккаунтов. Сервер, база, распознавание речи (Whisper) и нейро-голоса работают на Mac.
-Ассистент и агент-реализатор используют локальный `claude` CLI под твоим логином — ключ Anthropic API не нужен.
+Разговор идёт через локальный `claude` CLI, а код пишет Claude Code или Codex — всё под твоим логином и по твоей
+подписке, ключи API не нужны.
 Телефон подключается к Mac по QR-коду через домашнюю сеть или [Tailscale](https://tailscale.com).
 
 ## Установка
 
 **Что нужно:** Mac с Apple Silicon и macOS 14 или новее · [Claude Code](https://claude.com/claude-code) с подпиской
-Claude · около 5 ГБ свободного места · git, для пул-реквестов — `gh`.
+Claude (на нём идёт разговор) · по желанию Codex с подпиской ChatGPT, чтобы код писал он · около 5 ГБ свободного
+места · git, для пул-реквестов — `gh`.
 
 1. Скачай `Walkship-<версия>-arm64.dmg` из [последнего релиза](https://github.com/ilyabazhenov/walkship/releases/latest)
    и перетащи Walkship в «Программы».
@@ -63,8 +66,8 @@ Claude · около 5 ГБ свободного места · git, для пу�
 
 | | |
 |---|---|
-| ![Доска фич](press/screenshots/mac-board-dark.png) | ![Обсуждение](press/screenshots/mac-session-dark.png) |
-| ![Спецификация и запуск агента](press/screenshots/mac-feature-done-light.png) | ![Проект](press/screenshots/mac-project-light.png) |
+| ![Доска фич](press/screenshots/ru/mac-board-dark.png) | ![Обсуждение](press/screenshots/ru/mac-session-dark.png) |
+| ![Спецификация и запуск агента](press/screenshots/ru/mac-feature-done-light.png) | ![Проект](press/screenshots/ru/mac-project-light.png) |
 
 Остальные — в обеих темах и для телефона — в [`press/screenshots`](press/screenshots).
 

@@ -15,17 +15,18 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="press/screenshots/mac-home-light.png">
-    <img src="press/screenshots/mac-home-dark.png" alt="Walkship on the Mac" width="860">
+    <source media="(prefers-color-scheme: light)" srcset="press/screenshots/en/mac-home-light.png">
+    <img src="press/screenshots/en/mac-home-dark.png" alt="Walkship on the Mac" width="860">
   </picture>
 </p>
 
 Walkship is a voice partner for your projects. Talk a feature through while you walk: the assistant knows your
 code, its git history and your past discussions. It turns the conversation into decisions, open questions and
-features with acceptance criteria. One tap, and Claude Code builds the feature on its own branch on your Mac, runs
-the checks and sends a push to your phone. Talk the result over, say "open it", and the pull request is up.
+features with acceptance criteria. One tap, and your coding agent — Claude Code or Codex — builds the feature on its
+own branch on your Mac, runs the checks and sends a push to your phone. Talk the result over, say "open it", and the pull request is up.
 
-> **Beta.** The interface and the voice are Russian-only for now; English is planned.
+> **Beta.** Walkship speaks English and Russian — one setting for the screens, the assistant and the voice. English
+> arrives in 1.6; the current 1.5 build is Russian-only.
 
 ## How it works
 
@@ -41,13 +42,14 @@ an MCP server for your coding agents, and an offline outbox on the phone.
 ## Runs on your Mac
 
 Walkship has no cloud and no accounts. The server, the database, speech recognition (Whisper) and the neural voices
-run on your Mac. The assistant and the implementation agent use the local `claude` CLI under your own login — no
-Anthropic API key. The phone pairs with the Mac by QR code over your home network or [Tailscale](https://tailscale.com).
+run on your Mac. The conversation runs on the local `claude` CLI, and the code is written by Claude Code or Codex —
+all under your own login and subscription, no API keys. The phone pairs with the Mac by QR code over your home network or [Tailscale](https://tailscale.com).
 
 ## Install
 
 **Requirements:** a Mac with Apple Silicon and macOS 14 or later · [Claude Code](https://claude.com/claude-code)
-with a Claude subscription · about 5 GB free · git, and `gh` for pull requests.
+with a Claude subscription (it runs the conversation) · optionally Codex with a ChatGPT subscription, to write the code
+instead of Claude Code · about 5 GB free · git, and `gh` for pull requests.
 
 1. Download `Walkship-<version>-arm64.dmg` from the [latest release](https://github.com/ilyabazhenov/walkship/releases/latest)
    and drag Walkship into Applications.
@@ -62,8 +64,8 @@ The Mac app checks for updates and offers new versions from the menu bar; your d
 
 | | |
 |---|---|
-| ![Feature board](press/screenshots/mac-board-dark.png) | ![Discussion](press/screenshots/mac-session-dark.png) |
-| ![Feature spec and agent run](press/screenshots/mac-feature-done-light.png) | ![Project](press/screenshots/mac-project-light.png) |
+| ![Feature board](press/screenshots/en/mac-board-dark.png) | ![Discussion](press/screenshots/en/mac-session-dark.png) |
+| ![Feature spec and agent run](press/screenshots/en/mac-feature-done-light.png) | ![Project](press/screenshots/en/mac-project-light.png) |
 
 More, in both themes and for the phone, in [`press/screenshots`](press/screenshots).
 

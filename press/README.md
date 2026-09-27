@@ -48,7 +48,7 @@ Muted and warm — no neon.
 
 ## Screenshots · Скриншоты
 
-`<device>-<screen>-<theme>.png`, made on demo data (the projects trailnote, tidepool-api, lantern-site, harbor-cli
+`<language>/<device>-<screen>-<theme>.png` — `en/` with the app in English, `ru/` in Russian — made on demo data (the projects trailnote, tidepool-api, lantern-site, harbor-cli
 are made up):
 
 | Screen | |
@@ -60,4 +60,3 @@ are made up):
 | `project` | a project: features, discussions, notes |
 | `inbox` | notes and conversations waiting for a project |
 
-The app's interface is Russian for now. · Интерфейс приложения пока на русском.
