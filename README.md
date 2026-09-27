@@ -25,8 +25,7 @@ code, its git history and your past discussions. It turns the conversation into 
 features with acceptance criteria. One tap, and your coding agent — Claude Code or Codex — builds the feature on its
 own branch on your Mac, runs the checks and sends a push to your phone. Talk the result over, say "open it", and the pull request is up.
 
-> **Beta.** Walkship speaks English and Russian — one setting for the screens, the assistant and the voice. English
-> arrives in 1.6; the current 1.5 build is Russian-only.
+> **Beta.** Walkship speaks English and Russian — one setting for the screens, the assistant and the voice.
 
 ## How it works
 

@@ -31,7 +31,6 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
   agent — Claude Code or Codex — builds it on your Mac.
 - Buttons: **Download for Mac** · **Android APK**
 - Under the buttons: Beta · Apple Silicon Mac, macOS 14+ · requires Claude Code, Codex optional
-- Note: The English interface arrives in 1.6; today's build speaks Russian.
 
 ## How it works — three steps
 
@@ -75,7 +74,7 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
 - About 5 GB free: the voice pack (Whisper and neural voices) takes about 3.3 GB.
 - git; `gh` (GitHub CLI) for pull requests.
 - Optional: an Android phone, and Tailscale to talk away from home.
-- Interface and voice: English and Russian (English from 1.6).
+- Interface and voice: English or Russian — one setting for both.
 
 ## FAQ
 
@@ -102,7 +101,6 @@ you say so.
 
 **What languages does it speak?**
 English and Russian. One setting switches the screens, the assistant and the voice, on the Mac and the phone alike.
-English arrives in 1.6.
 
 **How do updates work?**
 The app checks for new versions and offers them from the menu bar. Your data stays in place.
