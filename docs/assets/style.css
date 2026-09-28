@@ -125,6 +125,48 @@ p { margin: 0; }
 .step h3 { font-size: 24px; margin-bottom: 10px; }
 .step p { color: var(--muted); }
 
+/* The map above the steps: phone ⇄ Mac → subscription and PR. Lines are borders, arrowheads are
+   rotated corners (.head-start, .head-end); on narrow screens the same parts stand in a column. */
+.flow {
+  display: grid; grid-template-columns: minmax(0, 1fr) 132px minmax(0, 1.3fr) minmax(0, 1.15fr);
+  margin-top: 56px; align-items: stretch;
+}
+.flow-node {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 22px 24px;
+}
+.flow-node > .i { width: 26px; height: 26px; color: var(--accent); margin-bottom: 18px; }
+.flow-eyebrow { font: 500 11px/1.3 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+.flow-node h3 { margin-bottom: 6px; }
+.flow-node > p:last-child { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.flow-you { align-self: center; }
+.flow-mac {
+  background: linear-gradient(160deg, var(--accent-soft), transparent 60%), var(--card);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  padding: 26px 26px 28px;
+}
+.flow-mac .flow-eyebrow { color: var(--accent); }
+.flow-rows { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
+.flow-rows li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.flow-rows .i { width: 18px; height: 18px; color: var(--accent); margin-top: 2px; }
+.flow-outs { display: grid; gap: 16px; align-content: center; }
+.flow-out { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; }
+
+.flow-link { position: relative; align-self: center; height: 44px; }
+.flow-link::before { content: ""; position: absolute; left: 6px; right: 6px; top: 50%; border-top: 1.5px dashed var(--accent); }
+.flow-link-out::before { border-top-style: solid; }
+.flow-link b {
+  position: absolute; top: 50%; width: 8px; height: 8px;
+  border: solid var(--accent); border-width: 1.5px 1.5px 0 0;
+}
+.flow-link .head-end { right: 7px; transform: translateY(-50%) rotate(45deg); }
+.flow-link .head-start { left: 7px; transform: translateY(-50%) rotate(-135deg); }
+.flow-link span {
+  position: absolute; left: 4px; right: 4px; bottom: calc(50% + 10px);
+  font: 500 11px/1.35 var(--mono); letter-spacing: 0.04em; color: var(--muted); text-align: center;
+}
+.flow-note { margin-top: 20px; color: var(--faint); font: 400 13px/1.5 var(--mono); }
+
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 56px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .card { background: var(--bg); padding: 30px 28px 34px; }
 .card .i { width: 26px; height: 26px; color: var(--accent); margin-bottom: 22px; }
@@ -184,6 +226,19 @@ p { margin: 0; }
   .split-flip > :first-child { order: 0; }
   .steps { gap: 64px; }
   .step .phone-sm { margin-inline: auto; }
+  .flow { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+  .flow-you { align-self: stretch; }
+  .flow-outs { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .flow-out { grid-template-columns: 1fr; grid-template-rows: 52px auto; align-items: stretch; }
+  .flow-out .flow-node { padding: 18px 16px 20px; }
+  .flow-link { height: 72px; align-self: stretch; }
+  .flow-link-out { height: auto; }
+  .flow-link::before { left: 50%; right: auto; top: 6px; bottom: 6px; border-top: 0; border-left: 1.5px dashed var(--accent); }
+  .flow-link-out::before { border-left-style: solid; }
+  .flow-link .head-end { left: 50%; right: auto; top: auto; bottom: 7px; transform: translateX(-50%) rotate(135deg); }
+  .flow-link .head-start { left: 50%; top: 7px; transform: translateX(-50%) rotate(-45deg); }
+  .flow-link span { left: calc(50% + 16px); right: 0; bottom: auto; top: 50%; transform: translateY(-50%); text-align: left; }
+  .flow-note { text-align: center; }
   .grid { grid-template-columns: 1fr 1fr; }
   .split { gap: 48px; }
 }

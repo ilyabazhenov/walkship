@@ -61,6 +61,18 @@
   <div class="wrap">
     <p class="label">Как это работает</p>
     <h2>От мысли на прогулке до пул-реквеста</h2>
+    <div class="flow">
+      <div class="flow-node flow-you"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><p class="flow-eyebrow">Ты на прогулке</p><h3>Телефон</h3><p>Говоришь, слушаешь, получаешь пуш, когда работа готова</p></div>
+      <div class="flow-link flow-both"><b class="head-start"></b><b class="head-end"></b><span>Домашний Wi-Fi или Tailscale</span></div>
+      <div class="flow-node flow-mac"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><p class="flow-eyebrow">Твой Mac дома</p><h3>Walkship</h3>
+        <ul class="flow-rows"><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span>Слушает, отвечает голосом и ведёт разговор</span></li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.3-4.3"/></svg><span>Знает проекты: код, историю git, заметки и прошлые обсуждения</span></li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16"/></svg><span>Запускает Claude Code или Codex в отдельном git worktree</span></li></ul>
+      </div>
+      <div class="flow-outs">
+        <div class="flow-out"><div class="flow-link flow-link-out"><b class="head-end"></b></div><div class="flow-node"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18.5h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 9 4.8 4.8 0 0 0 7 18.5Z"/></svg><p class="flow-eyebrow">Твоя подписка</p><h3>Claude или ChatGPT</h3><p>Модели для разговора и кода — под твоим логином</p></div></div>
+        <div class="flow-out"><div class="flow-link flow-link-out"><b class="head-end"></b></div><div class="flow-node"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5.5" r="2.2"/><circle cx="6" cy="18.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M6 7.7v8.6M18 16.3V10a3 3 0 0 0-3-3h-4.5M12.5 4.5 10 7l2.5 2.5"/></svg><p class="flow-eyebrow">Результат</p><h3>Пул-реквест</h3><p>Проверки пройдены, коммит сделан; открывается, когда скажешь</p></div></div>
+      </div>
+    </div>
+    <p class="flow-note">Серверов Walkship и аккаунтов нет: всё, что посередине, работает на твоём Mac.</p>
     <ol class="steps">
       <li class="step">
         <div class="phone phone-sm"><picture class="phone-shot"><source media="(prefers-color-scheme: light)" srcset="../assets/img/ru/phone-session-light.webp"><img src="../assets/img/ru/phone-session-dark.webp" alt="Говоришь" loading="lazy" decoding="async"></picture></div>

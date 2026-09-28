@@ -22,6 +22,9 @@ const icons = {
   apple: '<path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.9-3-.8a4.5 4.5 0 0 0-3.8 2.3c-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2-1.1 2.8-2.3.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3Z" fill="currentColor" stroke="none"/>',
   android: '<path d="M7 10h10v7a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-7ZM7 9a5 5 0 0 1 10 0H7ZM4.5 10.5v5M19.5 10.5v5M9.5 18v3M14.5 18v3M8.5 4.5l1 1.5M15.5 4.5l-1 1.5"/>',
   check: '<path d="m5 12 5 5 9-10"/>',
+  phone: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
+  cloud: '<path d="M7 18.5h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 9 4.8 4.8 0 0 0 7 18.5Z"/>',
+  pr: '<circle cx="6" cy="5.5" r="2.2"/><circle cx="6" cy="18.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M6 7.7v8.6M18 16.3V10a3 3 0 0 0-3-3h-4.5M12.5 4.5 10 7l2.5 2.5"/>',
 };
 const icon = (name, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;
 
@@ -47,6 +50,20 @@ const copy = {
       ["It sums up", "Say “wrap it up”, and the conversation becomes decisions, open questions and features with a spec and acceptance criteria.", "feature-done"],
       ["An agent ships it", "One tap, and Claude Code or Codex builds the feature in its own git worktree, runs the checks and commits. A push on your phone, a spoken recap, “open it” — and the PR is up.", "feature-running"],
     ],
+    flow: {
+      you: ["You, on a walk", "Your phone", "Talk, listen, get a push when the work is done"],
+      link: "Home Wi-Fi or Tailscale",
+      mac: ["Your Mac at home", "Walkship", [
+        ["talk", "Hears you, answers out loud and keeps the conversation going"],
+        ["memory", "Knows your projects: the code, git history, notes and past talks"],
+        ["mcp", "Runs Claude Code or Codex in a separate git worktree"],
+      ]],
+      outs: [
+        ["cloud", "Your subscription", "Claude or ChatGPT", "The models behind the talk and the code, under your own login"],
+        ["pr", "The result", "A pull request", "Checked and committed; it opens when you say so"],
+      ],
+      note: "No Walkship servers and no accounts: everything in the middle runs on your Mac.",
+    },
     featLabel: "Features",
     featTitle: "Everything a thinking walk needs",
     features: [
@@ -126,6 +143,20 @@ const copy = {
       ["Он собирает итоги", "Скажи «оформляй» — разговор превращается в решения, открытые вопросы и фичи со спецификацией и критериями готовности.", "feature-done"],
       ["Агент пишет код", "Одно нажатие — Claude Code или Codex реализует фичу в отдельном git worktree, прогоняет проверки и коммитит. Пуш на телефон, пересказ голосом, «открывай» — и PR готов.", "feature-running"],
     ],
+    flow: {
+      you: ["Ты на прогулке", "Телефон", "Говоришь, слушаешь, получаешь пуш, когда работа готова"],
+      link: "Домашний Wi-Fi или Tailscale",
+      mac: ["Твой Mac дома", "Walkship", [
+        ["talk", "Слушает, отвечает голосом и ведёт разговор"],
+        ["memory", "Знает проекты: код, историю git, заметки и прошлые обсуждения"],
+        ["mcp", "Запускает Claude Code или Codex в отдельном git worktree"],
+      ]],
+      outs: [
+        ["cloud", "Твоя подписка", "Claude или ChatGPT", "Модели для разговора и кода — под твоим логином"],
+        ["pr", "Результат", "Пул-реквест", "Проверки пройдены, коммит сделан; открывается, когда скажешь"],
+      ],
+      note: "Серверов Walkship и аккаунтов нет: всё, что посередине, работает на твоём Mac.",
+    },
     featLabel: "Возможности",
     featTitle: "Всё, что нужно прогулке с мыслями",
     features: [
@@ -184,6 +215,25 @@ const copy = {
     footer: { releases: "Версии", issues: "Сообщить о проблеме", press: "Пресс-кит" },
     alt: { mac: "Walkship на Mac: пульт с агентами, разговорами и открытыми вопросами", phone: "Walkship на телефоне" },
   },
+};
+
+// The map of the pieces above the steps: the phone talks to the Mac, the Mac talks to the models
+// and opens the PR. A row on wide screens, a column on phones (style.css → .flow).
+const flow = (f) => {
+  const node = (ic, eyebrow, title, body, cls = "") =>
+    `<div class="flow-node${cls}">${icon(ic)}<p class="flow-eyebrow">${eyebrow}</p><h3>${title}</h3><p>${body}</p></div>`;
+  const [macEyebrow, macTitle, rows] = f.mac;
+  return `<div class="flow">
+      ${node("phone", ...f.you, " flow-you")}
+      <div class="flow-link flow-both"><b class="head-start"></b><b class="head-end"></b><span>${f.link}</span></div>
+      <div class="flow-node flow-mac">${icon("mac")}<p class="flow-eyebrow">${macEyebrow}</p><h3>${macTitle}</h3>
+        <ul class="flow-rows">${rows.map(([ic, t]) => `<li>${icon(ic)}<span>${t}</span></li>`).join("")}</ul>
+      </div>
+      <div class="flow-outs">
+        ${f.outs.map((o) => `<div class="flow-out"><div class="flow-link flow-link-out"><b class="head-end"></b></div>${node(...o)}</div>`).join("\n        ")}
+      </div>
+    </div>
+    <p class="flow-note">${f.note}</p>`;
 };
 
 // A screenshot that follows the page's theme: dark and light captures of the same screen,
@@ -260,6 +310,7 @@ function page(c) {
   <div class="wrap">
     <p class="label">${c.howLabel}</p>
     <h2>${c.howTitle}</h2>
+    ${flow(c.flow)}
     <ol class="steps">
       ${c.steps
         .map(
