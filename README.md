@@ -41,14 +41,14 @@ an MCP server for your coding agents, and an offline outbox on the phone.
 ## Runs on your Mac
 
 Walkship has no cloud and no accounts. The server, the database, speech recognition (Whisper) and the neural voices
-run on your Mac. The conversation runs on the local `claude` CLI, and the code is written by Claude Code or Codex —
-all under your own login and subscription, no API keys. The phone pairs with the Mac by QR code over your home network or [Tailscale](https://tailscale.com).
+run on your Mac. The conversation, summaries and code run on the local Claude Code or Codex CLI — your pick for each
+— all under your own login and subscription, no API keys. The phone pairs with the Mac by QR code over your home network or [Tailscale](https://tailscale.com).
 
 ## Install
 
 **Requirements:** a Mac with Apple Silicon and macOS 14 or later · [Claude Code](https://claude.com/claude-code)
-with a Claude subscription (it runs the conversation) · optionally Codex with a ChatGPT subscription, to write the code
-instead of Claude Code · about 5 GB free · git, and `gh` for pull requests.
+with a Claude subscription, or Codex with a ChatGPT subscription — one is enough · about 5 GB free · git, and `gh`
+for pull requests.
 
 1. Download `Walkship-<version>-arm64.dmg` from the [latest release](https://github.com/ilyabazhenov/walkship/releases/latest)
    and drag Walkship into Applications.

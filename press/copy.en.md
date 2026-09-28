@@ -30,7 +30,7 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
 - Subhead: Talk a feature through while you walk. Walkship turns the conversation into a spec, and your coding
   agent — Claude Code or Codex — builds it on your Mac.
 - Buttons: **Download for Mac** · **Android APK**
-- Under the buttons: Beta · Apple Silicon Mac, macOS 14+ · requires Claude Code, Codex optional
+- Under the buttons: Beta · Apple Silicon Mac, macOS 14+ · requires Claude Code or Codex
 
 ## How it works — three steps
 
@@ -58,7 +58,7 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
 
 ## Runs on your Mac
 
-- Your code goes only to the agents you already use — Claude Code, and Codex if you pick it — through their local
+- Your code goes only to the agents you already use — Claude Code or Codex — through their local
   CLIs under your own login. No API keys.
 - No accounts and no Walkship cloud. The server, the database and the voices run on your Mac.
 - Speech recognition: Whisper on the Mac, the system recognizer on the phone. The assistant's voice: neural voices,
@@ -69,8 +69,8 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
 ## Requirements
 
 - A Mac with Apple Silicon (M1 or later), macOS 14 Sonoma or later.
-- Claude Code with a Claude subscription (Pro or Max) — it runs the conversation.
-- Optional: Codex with a ChatGPT subscription, to write the code instead of Claude Code.
+- Claude Code with a Claude subscription (Pro or Max), or Codex with a ChatGPT subscription (Plus or Pro) — one is
+  enough, both work together.
 - About 5 GB free: the voice pack (Whisper and neural voices) takes about 3.3 GB.
 - git; `gh` (GitHub CLI) for pull requests.
 - Optional: an Android phone, and Tailscale to talk away from home.
@@ -82,15 +82,14 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
 [Decide before publishing: is the beta free? Will there be a paid plan?]
 
 **Do I need an API key?**
-No. The conversation and summaries run through Claude Code on your Claude subscription, and the code is written by
-Claude Code or Codex on yours.
+No. Everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription.
 
 **Can I use Codex instead of Claude Code?**
-For writing the code, yes: pick Claude Code or Codex in Settings → Agents & models. The voice conversation itself
-runs on Claude Code for now.
+Yes, for everything: in Settings → Agents & models the conversation, summaries and implementation each pick Claude or
+Codex and a model. When one subscription runs out, the assistant offers to go on with the other.
 
 **Where does my code go?**
-Only to the agents you use — Claude Code, and Codex if you pick it — exactly as if you ran them yourself. Walkship has no cloud server.
+Only to the agents you use — Claude Code or Codex — exactly as if you ran them yourself. Walkship has no cloud server.
 
 **Is there an iPhone app?**
 Not yet. There's the Mac app and Android. On the Mac you can talk right in the app.
