@@ -6,6 +6,7 @@ Everything needed to write about Walkship or build a page for it. Use freely to 
 | | |
 |---|---|
 | [`copy.en.md`](copy.en.md) · [`copy.ru.md`](copy.ru.md) | Page copy: taglines, descriptions (1 line / short / paragraph), hero, steps, features, privacy, requirements, FAQ, the story. Тексты для страницы |
+| [`appstore.en.md`](appstore.en.md) · [`appstore.ru.md`](appstore.ru.md) | App Store listing: subtitle, promotional text, description, keywords, URLs, App information answers. Страница в App Store |
 | [`logo/`](logo) | Logos, SVG + PNG ×4. Логотипы |
 | [`icon/`](icon) | App icon, 1024 px. Иконка приложения |
 | [`screenshots/`](screenshots) | Mac (2880×1800) and phone (1179×2556), dark and light. Скриншоты |
