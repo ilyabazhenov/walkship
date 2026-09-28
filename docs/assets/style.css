@@ -120,7 +120,7 @@ p { margin: 0; }
 
 .steps { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .step { display: flex; flex-direction: column; gap: 28px; }
-.phone-sm { width: min(240px, 78%); border-radius: 28px; border-width: 6px; }
+.phone-sm { width: min(240px, 78%); margin-inline: auto; border-radius: 28px; border-width: 6px; }
 .num { font: 500 13px var(--mono); color: var(--accent); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
 .step h3 { font-size: 24px; margin-bottom: 10px; }
 .step p { color: var(--muted); }
@@ -243,7 +243,6 @@ p { margin: 0; }
   .steps, .split, .panel, .faq-wrap { grid-template-columns: 1fr; }
   .split-flip > :first-child { order: 0; }
   .steps { gap: 64px; }
-  .step .phone-sm { margin-inline: auto; }
   .flow { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
   .flow-zone, .flow-col-home .flow-zone { border-top: 0; padding-top: 0; margin: 0 0 10px; }
   .flow-col-link .flow-zone { display: none; }
