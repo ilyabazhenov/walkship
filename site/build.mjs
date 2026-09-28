@@ -60,6 +60,14 @@ const copy = {
       ["plug", "Your MCP servers", "Connect Jira, Sentry or a database, and the assistant uses them in conversation."],
       ["offline", "Nothing lost offline", "A phrase you said waits on the phone and goes out once the server is back."],
     ],
+    agentsLabel: "Claude or Codex",
+    agentsTitle: "Your agent, your subscription — for every role",
+    agents: [
+      "The conversation, summaries and implementation each pick Claude Code or Codex, and a model",
+      "Codex models come from your ChatGPT account; Claude’s from your Claude plan",
+      "When one subscription runs out, the assistant offers to go on with the other",
+      "Both subscriptions’ limits side by side, on the Mac and the phone",
+    ],
     privLabel: "Privacy",
     privTitle: "Runs on your Mac. Nowhere else.",
     privacy: [
@@ -130,6 +138,14 @@ const copy = {
       ["mcp", "MCP для твоих агентов", "Claude Code, Cursor и Codex в репозитории видят идеи, решения и фичи проекта."],
       ["plug", "Внешние MCP-серверы", "Подключи Jira, Sentry или базу данных — ассистент будет пользоваться ими в разговоре."],
       ["offline", "Без связи ничего не теряется", "Сказанная фраза ждёт на телефоне и уходит сама, когда сервер снова доступен."],
+    ],
+    agentsLabel: "Claude или Codex",
+    agentsTitle: "Твой агент и твоя подписка — для каждой роли",
+    agents: [
+      "Разговор, итоги и реализация — каждый выбирает Claude Code или Codex и модель",
+      "Модели Codex — из твоего аккаунта ChatGPT, модели Claude — из подписки Claude",
+      "Кончился лимит одной подписки — ассистент предложит продолжить на другой",
+      "Лимиты обеих подписок рядом, на Mac и на телефоне",
     ],
     privLabel: "Приватность",
     privTitle: "Всё на твоём Mac. И больше нигде.",
@@ -272,6 +288,22 @@ function page(c) {
     <h2>${c.featTitle}</h2>
     <div class="grid">
       ${c.features.map(([ic, t, body]) => `<article class="card">${icon(ic)}<h3>${t}</h3><p>${body}</p></article>`).join("\n      ")}
+    </div>
+  </div>
+</section>
+
+<section id="agents" class="section">
+  <div class="wrap split split-flip">
+    <div>
+      <p class="label">${c.agentsLabel}</p>
+      <h2>${c.agentsTitle}</h2>
+      <ul class="ticks">
+        ${c.agents.map((p) => `<li>${icon("check")}<span>${p}</span></li>`).join("\n        ")}
+      </ul>
+    </div>
+    <div class="window window-side">
+      <div class="window-bar"><i></i><i></i><i></i></div>
+      ${shot(c, "mac-models", c.agentsTitle, "window-shot")}
     </div>
   </div>
 </section>

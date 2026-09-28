@@ -59,4 +59,6 @@ are made up):
 | `board` | the feature board across projects |
 | `project` | a project: features, discussions, notes |
 | `inbox` | notes and conversations waiting for a project |
+| `models` | agents and models: Claude or Codex, and a model, for the conversation, summaries and implementation |
+| `limits` | both subscriptions' 5-hour and weekly windows, Claude and Codex |
 

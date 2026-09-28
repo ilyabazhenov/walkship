@@ -132,6 +132,9 @@ p { margin: 0; }
 .card p { color: var(--muted); font-size: 16px; }
 
 .split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; }
+/* The window on the left, the text on the right; one column on phones keeps the text first. */
+.split-flip { grid-template-columns: 1.15fr 1fr; }
+.split-flip > :first-child { order: 2; }
 .ticks { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 18px; }
 .ticks li { display: grid; grid-template-columns: 24px 1fr; gap: 14px; color: var(--muted); }
 .ticks .i { width: 20px; height: 20px; color: var(--accent); margin-top: 4px; }
@@ -178,6 +181,7 @@ p { margin: 0; }
   .nav { display: none; }
   .lang { margin-left: auto; }
   .steps, .split, .panel, .faq-wrap { grid-template-columns: 1fr; }
+  .split-flip > :first-child { order: 0; }
   .steps { gap: 64px; }
   .grid { grid-template-columns: 1fr 1fr; }
   .split { gap: 48px; }
