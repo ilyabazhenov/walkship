@@ -112,6 +112,7 @@ const copy = {
     dlNote: "The Mac app sets everything up on first launch: Claude Code or Codex sign-in, the voice pack and a QR code for the phone.",
     allReleases: "All releases and notes",
     obtainium: "Android updates: add Walkship to Obtainium",
+    qr: "On the Mac? Point your Android phone’s camera here to download the APK on it.",
     faqLabel: "FAQ",
     faq: [
       ["Do I need an API key?", "No. Everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription."],
@@ -126,6 +127,23 @@ const copy = {
     story: "<em>Walk</em> + <em>ship</em>. Aristotle discussed ideas while pacing the Lyceum’s colonnade, Darwin thought while circling his Sandwalk path. Those walks used to end in forgotten ideas. A walk with Walkship ends in a pull request.",
     footer: { releases: "Releases", issues: "Report a problem", press: "Press kit", privacy: "Privacy policy" },
     alt: { mac: "Walkship on the Mac: the console with agents, conversations and open questions", phone: "Walkship on the phone" },
+    android: {
+      title: "Walkship for Android",
+      description: "Download the Walkship APK for Android and keep it up to date with Obtainium.",
+      label: "Android",
+      h1: "Walkship for Android",
+      caption: "Android 7+ · the phone app for Walkship on your Mac",
+      button: "Download APK",
+      stepsTitle: "Install",
+      steps: [
+        "Tap <b>Download APK</b> and open the file when it has downloaded.",
+        "Android asks to allow installing apps from your browser: allow it once.",
+        "Open Walkship and scan the QR code from the Mac app’s setup screen.",
+      ],
+      updatesTitle: "Updates",
+      updates: "Android doesn’t update apps installed this way on its own. Add Walkship to <a href=\"https://obtainium.imranr.dev\">Obtainium</a>, and it will install new versions from GitHub releases as they come out.",
+      obtainium: "Add to Obtainium",
+    },
     policy: {
       title: "Privacy policy — Walkship",
       description: "Walkship collects no personal data: no accounts, no Walkship servers, no analytics. Everything stays on your Mac.",
@@ -250,6 +268,7 @@ const copy = {
     dlNote: "При первом запуске приложение само всё настроит: вход в Claude Code или Codex, голосовой пакет и QR-код для телефона.",
     allReleases: "Все версии и что в них нового",
     obtainium: "Обновления на Android: добавь Walkship в Obtainium",
+    qr: "Открыл страницу на Mac? Наведи сюда камеру телефона на Android, чтобы скачать на него APK.",
     faqLabel: "Вопросы",
     faq: [
       ["Нужен ключ API?", "Нет. Всё идёт через Claude Code или Codex по твоей подписке Claude или ChatGPT."],
@@ -264,6 +283,23 @@ const copy = {
     story: "<em>Walk</em> + <em>ship</em>: гулять и выпускать. Аристотель обсуждал идеи, прохаживаясь по галерее Ликея, Дарвин думал, нарезая круги по тропе Sandwalk. Раньше такие прогулки заканчивались забытыми мыслями. Прогулка с Walkship заканчивается пул-реквестом.",
     footer: { releases: "Версии", issues: "Сообщить о проблеме", press: "Пресс-кит", privacy: "Политика конфиденциальности" },
     alt: { mac: "Walkship на Mac: пульт с агентами, разговорами и открытыми вопросами", phone: "Walkship на телефоне" },
+    android: {
+      title: "Walkship для Android",
+      description: "Скачай APK Walkship для Android и обновляй его через Obtainium.",
+      label: "Android",
+      h1: "Walkship для Android",
+      caption: "Android 7+ · телефонное приложение для Walkship на твоём Mac",
+      button: "Скачать APK",
+      stepsTitle: "Установка",
+      steps: [
+        "Нажми <b>Скачать APK</b> и открой файл, когда он скачается.",
+        "Android попросит разрешить установку приложений из браузера — разреши один раз.",
+        "Открой Walkship и отсканируй QR-код с экрана настройки в приложении на Mac.",
+      ],
+      updatesTitle: "Обновления",
+      updates: "Приложения, установленные так, Android сам не обновляет. Добавь Walkship в <a href=\"https://obtainium.imranr.dev\">Obtainium</a> — оно будет ставить новые версии из релизов на GitHub, как только они выходят.",
+      obtainium: "Добавить в Obtainium",
+    },
     policy: {
       title: "Политика конфиденциальности — Walkship",
       description: "Walkship не собирает персональные данные: ни аккаунтов, ни серверов Walkship, ни аналитики. Всё остаётся на твоём Mac.",
@@ -484,6 +520,10 @@ function page(c) {
           <a class="btn" data-asset="dmg" href="${REPO}/releases/latest">${icon("apple")}${c.mac}</a>
           <a class="btn btn-ghost" data-asset="apk" href="${REPO}/releases/latest">${icon("android")}${c.apk}</a>
         </div>
+        <a class="qr" href="${c.dir}${c.lang === "en" ? "" : "ru/"}android/">
+          <img src="${c.dir}assets/qr-android-${c.lang}.svg" width="116" height="116" alt="">
+          <span>${c.qr}</span>
+        </a>
         <p class="caption"><a href="${REPO}/releases">${c.allReleases} →</a><br><a href="${OBTAINIUM}">${c.obtainium} →</a></p>
       </div>
       <div>
@@ -532,14 +572,12 @@ function page(c) {
 `;
 }
 
-// The privacy policy, the page App Store Connect and Google Play link to: docs/privacy/ and docs/ru/privacy/.
-// Same header, footer and theme as the landing, the text only.
-function policyPage(c) {
-  const p = c.policy;
+// A page one level below the landing (docs/<slug>/ and docs/ru/<slug>/): same header, footer and theme.
+function subPage(c, slug, p, main, tail = "") {
   const d = `${c.dir}../`;
   const home = c.lang === "en" ? `${SITE}/` : `${SITE}/ru/`;
-  const url = `${home}privacy/`;
-  const other = c.lang === "en" ? "../ru/privacy/" : "../../privacy/";
+  const url = `${home}${slug}/`;
+  const other = c.lang === "en" ? `../ru/${slug}/` : `../../${slug}/`;
   return `<!doctype html>
 <html lang="${c.lang}">
 <head>
@@ -548,8 +586,8 @@ function policyPage(c) {
 <title>${p.title}</title>
 <meta name="description" content="${p.description}">
 <link rel="canonical" href="${url}">
-<link rel="alternate" hreflang="en" href="${SITE}/privacy/">
-<link rel="alternate" hreflang="ru" href="${SITE}/ru/privacy/">
+<link rel="alternate" hreflang="en" href="${SITE}/${slug}/">
+<link rel="alternate" hreflang="ru" href="${SITE}/ru/${slug}/">
 <meta name="theme-color" content="#0B0C0A" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F2F1EB" media="(prefers-color-scheme: light)">
 <link rel="icon" href="${d}assets/walkship-mark-on-dark.svg" type="image/svg+xml">
@@ -569,20 +607,7 @@ function policyPage(c) {
   </div>
 </header>
 
-<main class="section legal">
-  <div class="wrap">
-    <p class="label">${p.label}</p>
-    <h1>${p.h1}</h1>
-    <p class="legal-date">${p.updated}</p>
-    <p class="legal-lead">${p.lead}</p>
-    ${p.sections
-      .map(([h, paras]) => `<section>
-      <h2>${h}</h2>
-      ${paras.map((t) => `<p>${t}</p>`).join("\n      ")}
-    </section>`)
-      .join("\n    ")}
-  </div>
-</main>
+${main}
 
 <footer class="foot">
   <div class="wrap foot-in">
@@ -596,9 +621,55 @@ function policyPage(c) {
     </nav>
   </div>
 </footer>
-</body>
+${tail}</body>
 </html>
 `;
+}
+
+// The privacy policy, the page App Store Connect and Google Play link to: docs/privacy/ and docs/ru/privacy/.
+function policyPage(c) {
+  const p = c.policy;
+  return subPage(c, "privacy", p, `<main class="section legal">
+  <div class="wrap">
+    <p class="label">${p.label}</p>
+    <h1>${p.h1}</h1>
+    <p class="legal-date">${p.updated}</p>
+    <p class="legal-lead">${p.lead}</p>
+    ${p.sections
+      .map(([h, paras]) => `<section>
+      <h2>${h}</h2>
+      ${paras.map((t) => `<p>${t}</p>`).join("\n      ")}
+    </section>`)
+      .join("\n    ")}
+  </div>
+</main>`);
+}
+
+// The QR images (docs/assets/qr-android-{en,ru}.svg) encode these pages' fixed URLs, so they were made once with
+// the `qrcode` package; remake them only if SITE changes.
+// Where the QR code in the download panel leads: docs/android/ and docs/ru/android/. The phone opens it
+// after a scan and gets the APK in one tap (site.js points the button at the latest release's file).
+function androidPage(c) {
+  const p = c.android;
+  return subPage(c, "android", p, `<main class="section legal android">
+  <div class="wrap">
+    <p class="label">${p.label}</p>
+    <h1>${p.h1}</h1>
+    <p class="caption"><span data-version></span>${p.caption}</p>
+    <div class="cta">
+      <a class="btn" data-asset="apk" href="${REPO}/releases/latest">${icon("android")}${p.button}</a>
+    </div>
+    <section>
+      <h2>${p.stepsTitle}</h2>
+      <ol>${p.steps.map((t) => `<li>${t}</li>`).join("")}</ol>
+    </section>
+    <section>
+      <h2>${p.updatesTitle}</h2>
+      <p>${p.updates}</p>
+      <div class="cta"><a class="btn btn-ghost" href="${OBTAINIUM}">${p.obtainium}</a></div>
+    </section>
+  </div>
+</main>`, `<script src="${c.dir}../assets/site.js"></script>\n`);
 }
 
 fs.writeFileSync(path.join(root, "docs/index.html"), page(copy.en));
@@ -608,5 +679,8 @@ for (const c of [copy.en, copy.ru]) {
   const dir = path.join(root, "docs", c.lang === "en" ? "" : "ru", "privacy");
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), policyPage(c));
+  const android = path.join(root, "docs", c.lang === "en" ? "" : "ru", "android");
+  fs.mkdirSync(android, { recursive: true });
+  fs.writeFileSync(path.join(android, "index.html"), androidPage(c));
 }
-console.log("docs/index.html, docs/ru/index.html, docs/privacy/index.html, docs/ru/privacy/index.html");
+console.log("docs/index.html, docs/ru/index.html, docs/{,ru/}privacy/index.html, docs/{,ru/}android/index.html");
