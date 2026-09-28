@@ -56,6 +56,9 @@ for pull requests.
    installing the voice pack (about 3.3 GB).
 3. Optional, Android: install `Walkship-<version>.apk` from the same release and scan the QR code from the Mac's
    setup screen. Android asks to allow installing apps from your browser.
+   To get new versions automatically, add Walkship to [Obtainium](https://obtainium.imranr.dev):
+   [add](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/ilyabazhenov/walkship)
+   (open this link on the phone) or paste `https://github.com/ilyabazhenov/walkship` into it.
 
 The Mac app checks for updates and offers new versions from the menu bar; your data stays in `~/.voice-assistant`.
 

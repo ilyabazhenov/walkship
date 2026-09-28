@@ -56,6 +56,9 @@ Claude или Codex с подпиской ChatGPT — хватит одного 
    пакета (~3,3 ГБ).
 3. По желанию, Android: установи `Walkship-<версия>.apk` из того же релиза и отсканируй QR-код с экрана настройки на
    Mac. Android попросит разрешить установку приложений из браузера.
+   Чтобы новые версии ставились сами, добавь Walkship в [Obtainium](https://obtainium.imranr.dev):
+   [добавить](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/ilyabazhenov/walkship)
+   (открой ссылку на телефоне) или вставь в него `https://github.com/ilyabazhenov/walkship`.
 
 Приложение на Mac само проверяет обновления и предлагает новую версию из строки меню. Данные остаются в
 `~/.voice-assistant`.

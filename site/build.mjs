@@ -8,6 +8,8 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const REPO = "https://github.com/ilyabazhenov/walkship";
 const SITE = "https://ilyabazhenov.github.io/walkship";
+// Opens Obtainium on an Android phone with this repo ready to add; the redirect page helps browsers that block custom schemes.
+const OBTAINIUM = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO}`;
 
 const icons = {
   talk: '<path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
@@ -109,6 +111,7 @@ const copy = {
     dlTitle: "Take your next idea for a walk",
     dlNote: "The Mac app sets everything up on first launch: Claude Code or Codex sign-in, the voice pack and a QR code for the phone.",
     allReleases: "All releases and notes",
+    obtainium: "Android updates: add Walkship to Obtainium",
     faqLabel: "FAQ",
     faq: [
       ["Do I need an API key?", "No. Everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription."],
@@ -117,7 +120,7 @@ const copy = {
       ["Is there an iPhone app?", "Yes, it’s on its way to the App Store. Android is available now as an APK, and on the Mac you can talk right in the app."],
       ["Can the agent break my repository?", "It works in a separate git worktree on its own branch. Your main branch stays as it was, and a PR opens only when you say so."],
       ["What languages does it speak?", "English and Russian. One setting switches the screens, the assistant and the voice, on the Mac and the phone alike."],
-      ["How do updates work?", "The app checks for new versions and offers them from the menu bar. Your data stays in place."],
+      ["How do updates work?", "The Mac app checks for new versions and offers them from the menu bar. Your data stays in place. On Android, add Walkship to <a href=\"https://obtainium.imranr.dev\">Obtainium</a>: it installs new APKs from GitHub releases as they come out."],
     ],
     storyTitle: "Why “Walkship”",
     story: "<em>Walk</em> + <em>ship</em>. Aristotle discussed ideas while pacing the Lyceum’s colonnade, Darwin thought while circling his Sandwalk path. Those walks used to end in forgotten ideas. A walk with Walkship ends in a pull request.",
@@ -246,6 +249,7 @@ const copy = {
     dlTitle: "Возьми следующую идею на прогулку",
     dlNote: "При первом запуске приложение само всё настроит: вход в Claude Code или Codex, голосовой пакет и QR-код для телефона.",
     allReleases: "Все версии и что в них нового",
+    obtainium: "Обновления на Android: добавь Walkship в Obtainium",
     faqLabel: "Вопросы",
     faq: [
       ["Нужен ключ API?", "Нет. Всё идёт через Claude Code или Codex по твоей подписке Claude или ChatGPT."],
@@ -254,7 +258,7 @@ const copy = {
       ["Есть версия для iPhone?", "Да, она скоро появится в App Store. Android уже есть — APK на странице загрузки, а на Mac можно говорить прямо в приложении."],
       ["Агент не сломает мой репозиторий?", "Он работает в отдельном git worktree на своей ветке. Основная ветка остаётся как была, а PR открывается только по твоей команде."],
       ["На каких языках?", "На русском и английском. Одна настройка переключает экраны, ассистента и голос — и на Mac, и на телефоне."],
-      ["Как обновляться?", "Приложение само проверяет новые версии и предлагает скачать их из строки меню. Данные остаются на месте."],
+      ["Как обновляться?", "Приложение на Mac само проверяет новые версии и предлагает скачать их из строки меню. Данные остаются на месте. На Android добавь Walkship в <a href=\"https://obtainium.imranr.dev\">Obtainium</a> — оно будет ставить новые APK из релизов на GitHub, как только они выходят."],
     ],
     storyTitle: "Почему «Walkship»",
     story: "<em>Walk</em> + <em>ship</em>: гулять и выпускать. Аристотель обсуждал идеи, прохаживаясь по галерее Ликея, Дарвин думал, нарезая круги по тропе Sandwalk. Раньше такие прогулки заканчивались забытыми мыслями. Прогулка с Walkship заканчивается пул-реквестом.",
@@ -480,7 +484,7 @@ function page(c) {
           <a class="btn" data-asset="dmg" href="${REPO}/releases/latest">${icon("apple")}${c.mac}</a>
           <a class="btn btn-ghost" data-asset="apk" href="${REPO}/releases/latest">${icon("android")}${c.apk}</a>
         </div>
-        <p class="caption"><a href="${REPO}/releases">${c.allReleases} →</a></p>
+        <p class="caption"><a href="${REPO}/releases">${c.allReleases} →</a><br><a href="${OBTAINIUM}">${c.obtainium} →</a></p>
       </div>
       <div>
         <h3 class="req-title">${c.reqTitle}</h3>

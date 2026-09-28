@@ -102,7 +102,7 @@ you say so.
 English and Russian. One setting switches the screens, the assistant and the voice, on the Mac and the phone alike.
 
 **How do updates work?**
-The app checks for new versions and offers them from the menu bar. Your data stays in place.
+The Mac app checks for new versions and offers them from the menu bar. Your data stays in place. On Android, add Walkship to Obtainium: it installs new APKs from GitHub releases as they come out.
 
 ## The story (for "About", a post or a press release)
 
