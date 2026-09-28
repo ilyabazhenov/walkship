@@ -51,18 +51,19 @@ const copy = {
       ["An agent ships it", "One tap, and Claude Code or Codex builds the feature in its own git worktree, runs the checks and commits. A push on your phone, a spoken recap, “open it” — and the PR is up.", "feature-running"],
     ],
     flow: {
-      you: ["You, on a walk", "Your phone", "Talk, listen, get a push when the work is done"],
-      link: "Home Wi-Fi or Tailscale",
-      mac: ["Your Mac at home", "Walkship", [
-        ["talk", "Hears you, answers out loud and keeps the conversation going"],
-        ["memory", "Knows your projects: the code, git history, notes and past talks"],
-        ["mcp", "Runs Claude Code or Codex in a separate git worktree"],
+      zones: ["On a walk", "At home", "In the cloud"],
+      you: ["Your phone", "The Walkship app: talk, listen, get a push when the work is done"],
+      link: ["voice, answers, pushes", "Wi-Fi or Tailscale"],
+      mac: ["Your Mac", "Walkship · everything is stored here", [
+        ["talk", "Talks it through with you and knows the project: the code, git history, past talks"],
+        [2, "Sums it up: decisions, open questions, specs"],
+        [3, "Runs Claude Code or Codex in a separate git worktree"],
       ]],
       outs: [
-        ["cloud", "Your subscription", "Claude or ChatGPT", "The models behind the talk and the code, under your own login"],
-        ["pr", "The result", "A pull request", "Checked and committed; it opens when you say so"],
+        ["cloud", "Claude or ChatGPT", "Your subscription: the models for the talk and the code, under your own login", "prompts and replies"],
+        ["pr", "A pull request on GitHub", "Checks passed. It opens when you say so.", "git push"],
       ],
-      note: "No Walkship servers and no accounts: everything in the middle runs on your Mac.",
+      note: "There are no Walkship servers and no accounts.",
     },
     featLabel: "Features",
     featTitle: "Everything a thinking walk needs",
@@ -144,18 +145,19 @@ const copy = {
       ["Агент пишет код", "Одно нажатие — Claude Code или Codex реализует фичу в отдельном git worktree, прогоняет проверки и коммитит. Пуш на телефон, пересказ голосом, «открывай» — и PR готов.", "feature-running"],
     ],
     flow: {
-      you: ["Ты на прогулке", "Телефон", "Говоришь, слушаешь, получаешь пуш, когда работа готова"],
-      link: "Домашний Wi-Fi или Tailscale",
-      mac: ["Твой Mac дома", "Walkship", [
-        ["talk", "Слушает, отвечает голосом и ведёт разговор"],
-        ["memory", "Знает проекты: код, историю git, заметки и прошлые обсуждения"],
-        ["mcp", "Запускает Claude Code или Codex в отдельном git worktree"],
+      zones: ["На прогулке", "Дома", "В облаке"],
+      you: ["Телефон", "Приложение Walkship: говоришь, слушаешь, получаешь пуш, когда работа готова"],
+      link: ["голос, ответы, пуши", "Wi-Fi или Tailscale"],
+      mac: ["Твой Mac", "Walkship · всё хранится здесь", [
+        ["talk", "Ведёт разговор голосом и знает проект: код, историю git, прошлые обсуждения"],
+        [2, "Собирает итоги: решения, открытые вопросы, спецификации"],
+        [3, "Запускает Claude Code или Codex в отдельном git worktree"],
       ]],
       outs: [
-        ["cloud", "Твоя подписка", "Claude или ChatGPT", "Модели для разговора и кода — под твоим логином"],
-        ["pr", "Результат", "Пул-реквест", "Проверки пройдены, коммит сделан; открывается, когда скажешь"],
+        ["cloud", "Claude или ChatGPT", "Твоя подписка: модели для разговора и кода под твоим логином", "запросы и ответы"],
+        ["pr", "Пул-реквест на GitHub", "Проверки пройдены. Откроется по твоей команде.", "git push"],
       ],
-      note: "Серверов Walkship и аккаунтов нет: всё, что посередине, работает на твоём Mac.",
+      note: "Серверов Walkship и аккаунтов нет.",
     },
     featLabel: "Возможности",
     featTitle: "Всё, что нужно прогулке с мыслями",
@@ -217,21 +219,26 @@ const copy = {
   },
 };
 
-// The map of the pieces above the steps: the phone talks to the Mac, the Mac talks to the models
-// and opens the PR. A row on wide screens, a column on phones (style.css → .flow).
+// The map of the pieces above the steps, in three zones: the phone on a walk, the Mac at home (dashed:
+// everything stays inside it), the models and the PR in the cloud. The 01–03 marks point at the steps
+// below. A row on wide screens, a column on phones (style.css → .flow).
 const flow = (f) => {
-  const node = (ic, eyebrow, title, body, cls = "") =>
-    `<div class="flow-node${cls}">${icon(ic)}<p class="flow-eyebrow">${eyebrow}</p><h3>${title}</h3><p>${body}</p></div>`;
-  const [macEyebrow, macTitle, rows] = f.mac;
+  const step = (n) => `<em class="flow-step">0${n}</em>`;
+  const col = (cls, zone, body) =>
+    `<div class="flow-col ${cls}"><p class="flow-zone"${zone ? "" : ' aria-hidden="true"'}>${zone || "&nbsp;"}</p><div class="flow-body">${body}</div></div>`;
+  const link = (cls, what, how, { both = false, n = 0 } = {}) =>
+    `<div class="flow-link ${cls}">${both ? '<b class="head-start"></b>' : ""}<b class="head-end"></b>${n ? step(n) : ""}<span class="flow-what">${what}</span>${how ? `<span class="flow-how">${how}</span>` : ""}</div>`;
+  const node = (ic, title, body) => `<div class="flow-node">${icon(ic)}<h3>${title}</h3><p>${body}</p></div>`;
+  const [macTitle, macSub, rows] = f.mac;
   return `<div class="flow">
-      ${node("phone", ...f.you, " flow-you")}
-      <div class="flow-link flow-both"><b class="head-start"></b><b class="head-end"></b><span>${f.link}</span></div>
-      <div class="flow-node flow-mac">${icon("mac")}<p class="flow-eyebrow">${macEyebrow}</p><h3>${macTitle}</h3>
-        <ul class="flow-rows">${rows.map(([ic, t]) => `<li>${icon(ic)}<span>${t}</span></li>`).join("")}</ul>
-      </div>
-      <div class="flow-outs">
-        ${f.outs.map((o) => `<div class="flow-out"><div class="flow-link flow-link-out"><b class="head-end"></b></div>${node(...o)}</div>`).join("\n        ")}
-      </div>
+      ${col("flow-col-walk", f.zones[0], node("phone", ...f.you))}
+      ${col("flow-col-link", "", link("flow-link-phone", ...f.link, { both: true, n: 1 }))}
+      ${col("flow-col-home", f.zones[1], `<div class="flow-node flow-mac">${icon("mac")}<h3>${macTitle}</h3><p class="flow-sub">${macSub}</p>
+        <ul class="flow-rows">${rows.map(([m, t]) => `<li>${typeof m === "number" ? step(m) : icon(m)}<span>${t}</span></li>`).join("")}</ul>
+      </div>`)}
+      ${col("flow-col-out", f.zones[2], f.outs
+        .map(([ic, t, body, what], i) => `<div class="flow-out">${link("flow-link-out", what, "", { both: i === 0 })}${node(ic, t, body)}</div>`)
+        .join(""))}
     </div>
     <p class="flow-note">${f.note}</p>`;
 };
