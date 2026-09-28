@@ -183,6 +183,7 @@ p { margin: 0; }
   .steps, .split, .panel, .faq-wrap { grid-template-columns: 1fr; }
   .split-flip > :first-child { order: 0; }
   .steps { gap: 64px; }
+  .step .phone-sm { margin-inline: auto; }
   .grid { grid-template-columns: 1fr 1fr; }
   .split { gap: 48px; }
 }
