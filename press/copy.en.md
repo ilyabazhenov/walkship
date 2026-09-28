@@ -73,7 +73,7 @@ and the pull request is up. Everything runs on your Mac, on your Claude subscrip
   enough, both work together.
 - About 5 GB free: the voice pack (Whisper and neural voices) takes about 3.3 GB.
 - git; `gh` (GitHub CLI) for pull requests.
-- Optional: an Android phone, and Tailscale to talk away from home.
+- Optional: an iPhone or an Android phone, and Tailscale to talk away from home.
 - Interface and voice: English or Russian — one setting for both.
 
 ## FAQ
@@ -92,7 +92,7 @@ Codex and a model. When one subscription runs out, the assistant offers to go on
 Only to the agents you use — Claude Code or Codex — exactly as if you ran them yourself. Walkship has no cloud server.
 
 **Is there an iPhone app?**
-Not yet. There's the Mac app and Android. On the Mac you can talk right in the app.
+Yes, it's on its way to the App Store. Android is available now as an APK, and on the Mac you can talk right in the app.
 
 **Can the agent break my repository?**
 It works in a separate git worktree on its own branch. Your main branch stays as it was, and a PR opens only when

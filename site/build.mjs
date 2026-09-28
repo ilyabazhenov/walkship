@@ -1,4 +1,5 @@
-// Builds the landing page for GitHub Pages: docs/index.html (English) and docs/ru/index.html (Russian).
+// Builds the landing page for GitHub Pages: docs/index.html (English) and docs/ru/index.html (Russian),
+// and the privacy policy next to each: docs/privacy/ and docs/ru/privacy/.
 // One template, two texts — edit the copy below, then run: node site/build.mjs
 // The same copy, as plain blocks for other places, lives in press/copy.*.md.
 import fs from "node:fs";
@@ -102,7 +103,7 @@ const copy = {
       "Claude Code with a Claude subscription (Pro or Max), or Codex with a ChatGPT subscription (Plus or Pro) — one is enough, both work together",
       "About 5 GB free — the voice pack takes about 3.3 GB",
       "git, and <code>gh</code> (GitHub CLI) for pull requests",
-      "Optional: an Android phone, and Tailscale to talk away from home",
+      "Optional: an iPhone or an Android phone, and Tailscale to talk away from home",
       "Interface and voice: English or Russian — one setting for both",
     ],
     dlTitle: "Take your next idea for a walk",
@@ -113,15 +114,58 @@ const copy = {
       ["Do I need an API key?", "No. Everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription."],
       ["Can I use Codex instead of Claude Code?", "Yes, for everything: in Settings → Agents & models the conversation, summaries and implementation each pick Claude or Codex and a model. When one subscription runs out, the assistant offers to go on with the other."],
       ["Where does my code go?", "Only to the agents you use — Claude Code or Codex — exactly as if you ran them yourself. Walkship has no cloud server."],
-      ["Is there an iPhone app?", "Not yet. There’s the Mac app and Android. On the Mac you can talk right in the app."],
+      ["Is there an iPhone app?", "Yes, it’s on its way to the App Store. Android is available now as an APK, and on the Mac you can talk right in the app."],
       ["Can the agent break my repository?", "It works in a separate git worktree on its own branch. Your main branch stays as it was, and a PR opens only when you say so."],
       ["What languages does it speak?", "English and Russian. One setting switches the screens, the assistant and the voice, on the Mac and the phone alike."],
       ["How do updates work?", "The app checks for new versions and offers them from the menu bar. Your data stays in place."],
     ],
     storyTitle: "Why “Walkship”",
     story: "<em>Walk</em> + <em>ship</em>. Aristotle discussed ideas while pacing the Lyceum’s colonnade, Darwin thought while circling his Sandwalk path. Those walks used to end in forgotten ideas. A walk with Walkship ends in a pull request.",
-    footer: { releases: "Releases", issues: "Report a problem", press: "Press kit" },
+    footer: { releases: "Releases", issues: "Report a problem", press: "Press kit", privacy: "Privacy policy" },
     alt: { mac: "Walkship on the Mac: the console with agents, conversations and open questions", phone: "Walkship on the phone" },
+    policy: {
+      title: "Privacy policy — Walkship",
+      description: "Walkship collects no personal data: no accounts, no Walkship servers, no analytics. Everything stays on your Mac.",
+      label: "Privacy policy",
+      h1: "Walkship doesn’t collect your data",
+      updated: "Last updated: September 28, 2026",
+      lead: "Walkship has no accounts, no servers of its own, no analytics, no ads and no tracking. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.",
+      sections: [
+        ["Where your data lives", [
+          "Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks only to the Walkship server that runs on your own Mac, over your home network or a private network such as Tailscale that you set up.",
+          "Your conversations, transcripts, notes, summaries, features, agent logs and settings are stored in a database on your Mac, in the <code>~/.voice-assistant</code> folder. The phone keeps only the address of your Mac, a pairing key and phrases waiting to be sent while the Mac is out of reach.",
+          "The developer has no access to any of it.",
+        ]],
+        ["What leaves your devices, and where it goes", [
+          "<b>AI models.</b> To answer you, write summaries and build features, your Mac runs Claude Code (Anthropic) or Codex (OpenAI) — whichever you choose — under your own account. What you say, the conversation so far and the parts of your project the assistant reads are sent to that service, exactly as if you ran the tool yourself. Web search, when you turn it on, is done by the same service. Their privacy policies apply: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
+          "<b>Speech recognition.</b> On the phone, Walkship uses the system speech recognizer. When the language is installed on the device, recognition happens on the device; otherwise the system may send the audio to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. On the Mac, speech is recognized locally with Whisper. The assistant’s voice is synthesized locally on the Mac.",
+          "<b>Push notifications.</b> When an agent finishes or fails, your Mac sends a notification with the feature’s title and status to your phone through Expo’s push service, which hands it to Apple Push Notification service or Firebase Cloud Messaging. The phone’s push token is stored only on your Mac.",
+          "<b>GitHub.</b> Pull requests are opened with your own <code>git</code> and <code>gh</code> setup when you ask for one. The Mac app checks GitHub for new versions of Walkship; that request carries no personal data beyond what any web request does, such as your IP address.",
+          "<b>Services you connect.</b> If you add MCP servers (for example Jira, Sentry or a database), the assistant sends them requests on your behalf, as you configure.",
+        ]],
+        ["Permissions", [
+          "<b>Microphone and speech recognition</b> — to hear you while you talk to the assistant. Walkship doesn’t record in the background and doesn’t keep audio.",
+          "<b>Photo library</b> — iOS asks apps to describe this because the system file picker can read photo albums. Walkship doesn’t open your photos.",
+          "<b>Notifications</b> — to tell you when an agent has finished.",
+        ]],
+        ["What the developer receives", [
+          "Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. Nothing is sold or shared, because nothing is collected.",
+          "If you report a problem on GitHub, what you write there is public and handled under GitHub’s terms.",
+        ]],
+        ["Your control", [
+          "Projects, discussions, notes and features can be deleted in the app. To remove everything, delete the Walkship apps and the <code>~/.voice-assistant</code> folder on your Mac. To stop sending data to Anthropic or OpenAI, sign out of Claude Code or Codex; their data is managed in your accounts with them.",
+        ]],
+        ["Children", [
+          "Walkship is a tool for software developers and isn’t directed at children.",
+        ]],
+        ["Changes", [
+          "If this policy changes, the new version will be published on this page with a new date.",
+        ]],
+        ["Contact", [
+          `Questions about privacy: <a href="${REPO}/issues">open an issue on GitHub</a>.`,
+        ]],
+      ],
+    },
   },
   ru: {
     lang: "ru",
@@ -196,7 +240,7 @@ const copy = {
       "Claude Code с подпиской Claude (Pro или Max) или Codex с подпиской ChatGPT (Plus или Pro) — хватит одного, вместе тоже работают",
       "Около 5 ГБ свободного места — голосовой пакет занимает ~3,3 ГБ",
       "git, для пул-реквестов — <code>gh</code> (GitHub CLI)",
-      "По желанию — телефон на Android и Tailscale, чтобы говорить вне дома",
+      "По желанию — iPhone или телефон на Android и Tailscale, чтобы говорить вне дома",
       "Интерфейс и голос: русский или английский — одна настройка на всё",
     ],
     dlTitle: "Возьми следующую идею на прогулку",
@@ -207,15 +251,58 @@ const copy = {
       ["Нужен ключ API?", "Нет. Всё идёт через Claude Code или Codex по твоей подписке Claude или ChatGPT."],
       ["Можно вместо Claude Code использовать Codex?", "Да, для всего: в «Настройки → Агенты и модели» у разговора, итогов и реализации свой выбор — Claude или Codex и модель. Если у одной подписки кончится лимит, ассистент предложит продолжить на другой."],
       ["Куда уходит мой код?", "Только агентам, которыми ты пользуешься, — Claude Code или Codex — так же, как если бы ты запускал их сам. У Walkship нет своего сервера в облаке."],
-      ["Есть версия для iPhone?", "Пока нет. Есть Mac-приложение и Android. На Mac можно говорить прямо в приложении."],
+      ["Есть версия для iPhone?", "Да, она скоро появится в App Store. Android уже есть — APK на странице загрузки, а на Mac можно говорить прямо в приложении."],
       ["Агент не сломает мой репозиторий?", "Он работает в отдельном git worktree на своей ветке. Основная ветка остаётся как была, а PR открывается только по твоей команде."],
       ["На каких языках?", "На русском и английском. Одна настройка переключает экраны, ассистента и голос — и на Mac, и на телефоне."],
       ["Как обновляться?", "Приложение само проверяет новые версии и предлагает скачать их из строки меню. Данные остаются на месте."],
     ],
     storyTitle: "Почему «Walkship»",
     story: "<em>Walk</em> + <em>ship</em>: гулять и выпускать. Аристотель обсуждал идеи, прохаживаясь по галерее Ликея, Дарвин думал, нарезая круги по тропе Sandwalk. Раньше такие прогулки заканчивались забытыми мыслями. Прогулка с Walkship заканчивается пул-реквестом.",
-    footer: { releases: "Версии", issues: "Сообщить о проблеме", press: "Пресс-кит" },
+    footer: { releases: "Версии", issues: "Сообщить о проблеме", press: "Пресс-кит", privacy: "Политика конфиденциальности" },
     alt: { mac: "Walkship на Mac: пульт с агентами, разговорами и открытыми вопросами", phone: "Walkship на телефоне" },
+    policy: {
+      title: "Политика конфиденциальности — Walkship",
+      description: "Walkship не собирает персональные данные: ни аккаунтов, ни серверов Walkship, ни аналитики. Всё остаётся на твоём Mac.",
+      label: "Политика конфиденциальности",
+      h1: "Walkship не собирает твои данные",
+      updated: "Обновлено 28 сентября 2026 года",
+      lead: "У Walkship нет аккаунтов, своих серверов, аналитики, рекламы и слежки. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.",
+      sections: [
+        ["Где хранятся данные", [
+          "Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается только с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть или частную сеть вроде Tailscale, которую ты настраиваешь сам.",
+          "Разговоры, расшифровки, заметки, итоги, фичи, журналы агентов и настройки хранятся в базе на твоём Mac, в папке <code>~/.voice-assistant</code>. На телефоне остаются только адрес Mac, ключ подключения и фразы, которые ждут отправки, пока Mac недоступен.",
+          "У разработчика нет доступа ни к чему из этого.",
+        ]],
+        ["Что уходит с устройств и куда", [
+          "<b>Модели ИИ.</b> Чтобы отвечать, собирать итоги и реализовывать фичи, Mac запускает Claude Code (Anthropic) или Codex (OpenAI) — что ты выберешь — под твоим собственным аккаунтом. Сказанное тобой, ход разговора и части проекта, которые читает ассистент, уходят в этот сервис — так же, как если бы ты запускал инструмент сам. Поиск в интернете, если он включён, выполняет тот же сервис. Действуют их политики: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
+          "<b>Распознавание речи.</b> На телефоне Walkship использует системное распознавание. Если язык установлен на устройстве, речь распознаётся на нём; иначе система может отправить звук в Apple (iPhone) или Google (Android), чтобы превратить его в текст, — по их политикам. На Mac речь распознаётся локально через Whisper. Голос ассистента синтезируется локально на Mac.",
+          "<b>Пуш-уведомления.</b> Когда агент закончил или упал, Mac отправляет на телефон уведомление с названием фичи и статусом через пуш-сервис Expo, а тот передаёт его в Apple Push Notification service или Firebase Cloud Messaging. Пуш-токен телефона хранится только на Mac.",
+          "<b>GitHub.</b> Пул-реквесты открываются через твои <code>git</code> и <code>gh</code>, когда ты об этом попросишь. Приложение для Mac проверяет на GitHub новые версии Walkship; этот запрос не несёт персональных данных, кроме того, что есть в любом веб-запросе, например IP-адреса.",
+          "<b>Подключённые сервисы.</b> Если ты добавишь MCP-серверы (например, Jira, Sentry или базу данных), ассистент будет отправлять им запросы от твоего имени — так, как ты их настроил.",
+        ]],
+        ["Разрешения", [
+          "<b>Микрофон и распознавание речи</b> — чтобы слышать тебя, пока ты говоришь с ассистентом. Walkship не записывает в фоне и не хранит звук.",
+          "<b>Фотографии</b> — iOS требует описать это разрешение, потому что системный выбор файлов умеет читать фотоальбом. Walkship не открывает твои фото.",
+          "<b>Уведомления</b> — чтобы сообщить, что агент закончил работу.",
+        ]],
+        ["Что получает разработчик", [
+          "Ничего. В Walkship нет аналитики, отчётов о сбоях, рекламы и сторонней слежки, приложение не использует рекламный идентификатор. Ничего не продаётся и не передаётся, потому что ничего не собирается.",
+          "Если ты сообщишь о проблеме на GitHub, написанное там будет публичным и подчиняется правилам GitHub.",
+        ]],
+        ["Управление данными", [
+          "Проекты, обсуждения, заметки и фичи удаляются в приложении. Чтобы удалить всё, удали приложения Walkship и папку <code>~/.voice-assistant</code> на Mac. Чтобы перестать отправлять данные в Anthropic или OpenAI, выйди из Claude Code или Codex; данными у них управляешь в своих аккаунтах.",
+        ]],
+        ["Дети", [
+          "Walkship — инструмент для разработчиков и не предназначен для детей.",
+        ]],
+        ["Изменения", [
+          "Если политика изменится, новая версия появится на этой странице с новой датой.",
+        ]],
+        ["Связь", [
+          `Вопросы о конфиденциальности: <a href="${REPO}/issues">создай issue на GitHub</a>.`,
+        ]],
+      ],
+    },
   },
 };
 
@@ -430,6 +517,7 @@ function page(c) {
       <a href="${REPO}/releases">${c.footer.releases}</a>
       <a href="${REPO}/issues">${c.footer.issues}</a>
       <a href="${REPO}/tree/main/press">${c.footer.press}</a>
+      <a href="privacy/">${c.footer.privacy}</a>
       <a href="${c.other.href}" hreflang="${c.other.label.toLowerCase()}">${c.other.name}</a>
     </nav>
   </div>
@@ -440,7 +528,81 @@ function page(c) {
 `;
 }
 
+// The privacy policy, the page App Store Connect and Google Play link to: docs/privacy/ and docs/ru/privacy/.
+// Same header, footer and theme as the landing, the text only.
+function policyPage(c) {
+  const p = c.policy;
+  const d = `${c.dir}../`;
+  const home = c.lang === "en" ? `${SITE}/` : `${SITE}/ru/`;
+  const url = `${home}privacy/`;
+  const other = c.lang === "en" ? "../ru/privacy/" : "../../privacy/";
+  return `<!doctype html>
+<html lang="${c.lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${p.title}</title>
+<meta name="description" content="${p.description}">
+<link rel="canonical" href="${url}">
+<link rel="alternate" hreflang="en" href="${SITE}/privacy/">
+<link rel="alternate" hreflang="ru" href="${SITE}/ru/privacy/">
+<meta name="theme-color" content="#0B0C0A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F1EB" media="(prefers-color-scheme: light)">
+<link rel="icon" href="${d}assets/walkship-mark-on-dark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${d}assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${d}assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../">${logo(d)}</a>
+    <nav class="nav"></nav>
+    <a class="lang" href="${other}" hreflang="${c.other.label.toLowerCase()}" title="${c.other.name}">${c.other.label}</a>
+    <a class="btn btn-sm" href="../#download">${c.nav.download}</a>
+  </div>
+</header>
+
+<main class="section legal">
+  <div class="wrap">
+    <p class="label">${p.label}</p>
+    <h1>${p.h1}</h1>
+    <p class="legal-date">${p.updated}</p>
+    <p class="legal-lead">${p.lead}</p>
+    ${p.sections
+      .map(([h, paras]) => `<section>
+      <h2>${h}</h2>
+      ${paras.map((t) => `<p>${t}</p>`).join("\n      ")}
+    </section>`)
+      .join("\n    ")}
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    ${logo(d)}
+    <span class="foot-tag">Go for a walk. Come back to a PR.</span>
+    <nav>
+      <a href="${REPO}/releases">${c.footer.releases}</a>
+      <a href="${REPO}/issues">${c.footer.issues}</a>
+      <a href="../">Walkship</a>
+      <a href="${other}" hreflang="${c.other.label.toLowerCase()}">${c.other.name}</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
+`;
+}
+
 fs.writeFileSync(path.join(root, "docs/index.html"), page(copy.en));
 fs.mkdirSync(path.join(root, "docs/ru"), { recursive: true });
 fs.writeFileSync(path.join(root, "docs/ru/index.html"), page(copy.ru));
-console.log("docs/index.html, docs/ru/index.html");
+for (const c of [copy.en, copy.ru]) {
+  const dir = path.join(root, "docs", c.lang === "en" ? "" : "ru", "privacy");
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, "index.html"), policyPage(c));
+}
+console.log("docs/index.html, docs/ru/index.html, docs/privacy/index.html, docs/ru/privacy/index.html");

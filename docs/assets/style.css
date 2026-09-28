@@ -280,3 +280,14 @@ p { margin: 0; }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* Privacy policy: one readable column of text. */
+.legal .wrap { max-width: 760px; }
+.legal h1 { font-size: clamp(34px, 5.4vw, 56px); }
+.legal-date { font: 400 13px var(--mono); color: var(--faint); margin-top: 18px; }
+.legal-lead { font-size: 19px; margin-top: 28px; }
+.legal section { margin-top: 48px; }
+.legal h2 { font-size: 24px; max-width: none; margin-bottom: 14px; }
+.legal section p { color: var(--muted); margin-top: 12px; }
+.legal section b { color: var(--text); font-weight: 600; }
+.legal a { color: var(--accent); }

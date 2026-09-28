@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности — Walkship</title>
+<meta name="description" content="Walkship не собирает персональные данные: ни аккаунтов, ни серверов Walkship, ни аналитики. Всё остаётся на твоём Mac.">
+<link rel="canonical" href="https://ilyabazhenov.github.io/walkship/ru/privacy/">
+<link rel="alternate" hreflang="en" href="https://ilyabazhenov.github.io/walkship/privacy/">
+<link rel="alternate" hreflang="ru" href="https://ilyabazhenov.github.io/walkship/ru/privacy/">
+<meta name="theme-color" content="#0B0C0A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F1EB" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../../assets/walkship-mark-on-dark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><picture><source media="(prefers-color-scheme: light)" srcset="../../assets/walkship-horizontal-on-light.svg"><img src="../../assets/walkship-horizontal-on-dark.svg" alt="Walkship" height="28"></picture></a>
+    <nav class="nav"></nav>
+    <a class="lang" href="../../privacy/" hreflang="en" title="English">EN</a>
+    <a class="btn btn-sm" href="../#download">Скачать</a>
+  </div>
+</header>
+
+<main class="section legal">
+  <div class="wrap">
+    <p class="label">Политика конфиденциальности</p>
+    <h1>Walkship не собирает твои данные</h1>
+    <p class="legal-date">Обновлено 28 сентября 2026 года</p>
+    <p class="legal-lead">У Walkship нет аккаунтов, своих серверов, аналитики, рекламы и слежки. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.</p>
+    <section>
+      <h2>Где хранятся данные</h2>
+      <p>Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается только с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть или частную сеть вроде Tailscale, которую ты настраиваешь сам.</p>
+      <p>Разговоры, расшифровки, заметки, итоги, фичи, журналы агентов и настройки хранятся в базе на твоём Mac, в папке <code>~/.voice-assistant</code>. На телефоне остаются только адрес Mac, ключ подключения и фразы, которые ждут отправки, пока Mac недоступен.</p>
+      <p>У разработчика нет доступа ни к чему из этого.</p>
+    </section>
+    <section>
+      <h2>Что уходит с устройств и куда</h2>
+      <p><b>Модели ИИ.</b> Чтобы отвечать, собирать итоги и реализовывать фичи, Mac запускает Claude Code (Anthropic) или Codex (OpenAI) — что ты выберешь — под твоим собственным аккаунтом. Сказанное тобой, ход разговора и части проекта, которые читает ассистент, уходят в этот сервис — так же, как если бы ты запускал инструмент сам. Поиск в интернете, если он включён, выполняет тот же сервис. Действуют их политики: <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, <a href="https://openai.com/policies/privacy-policy/">OpenAI</a>.</p>
+      <p><b>Распознавание речи.</b> На телефоне Walkship использует системное распознавание. Если язык установлен на устройстве, речь распознаётся на нём; иначе система может отправить звук в Apple (iPhone) или Google (Android), чтобы превратить его в текст, — по их политикам. На Mac речь распознаётся локально через Whisper. Голос ассистента синтезируется локально на Mac.</p>
+      <p><b>Пуш-уведомления.</b> Когда агент закончил или упал, Mac отправляет на телефон уведомление с названием фичи и статусом через пуш-сервис Expo, а тот передаёт его в Apple Push Notification service или Firebase Cloud Messaging. Пуш-токен телефона хранится только на Mac.</p>
+      <p><b>GitHub.</b> Пул-реквесты открываются через твои <code>git</code> и <code>gh</code>, когда ты об этом попросишь. Приложение для Mac проверяет на GitHub новые версии Walkship; этот запрос не несёт персональных данных, кроме того, что есть в любом веб-запросе, например IP-адреса.</p>
+      <p><b>Подключённые сервисы.</b> Если ты добавишь MCP-серверы (например, Jira, Sentry или базу данных), ассистент будет отправлять им запросы от твоего имени — так, как ты их настроил.</p>
+    </section>
+    <section>
+      <h2>Разрешения</h2>
+      <p><b>Микрофон и распознавание речи</b> — чтобы слышать тебя, пока ты говоришь с ассистентом. Walkship не записывает в фоне и не хранит звук.</p>
+      <p><b>Фотографии</b> — iOS требует описать это разрешение, потому что системный выбор файлов умеет читать фотоальбом. Walkship не открывает твои фото.</p>
+      <p><b>Уведомления</b> — чтобы сообщить, что агент закончил работу.</p>
+    </section>
+    <section>
+      <h2>Что получает разработчик</h2>
+      <p>Ничего. В Walkship нет аналитики, отчётов о сбоях, рекламы и сторонней слежки, приложение не использует рекламный идентификатор. Ничего не продаётся и не передаётся, потому что ничего не собирается.</p>
+      <p>Если ты сообщишь о проблеме на GitHub, написанное там будет публичным и подчиняется правилам GitHub.</p>
+    </section>
+    <section>
+      <h2>Управление данными</h2>
+      <p>Проекты, обсуждения, заметки и фичи удаляются в приложении. Чтобы удалить всё, удали приложения Walkship и папку <code>~/.voice-assistant</code> на Mac. Чтобы перестать отправлять данные в Anthropic или OpenAI, выйди из Claude Code или Codex; данными у них управляешь в своих аккаунтах.</p>
+    </section>
+    <section>
+      <h2>Дети</h2>
+      <p>Walkship — инструмент для разработчиков и не предназначен для детей.</p>
+    </section>
+    <section>
+      <h2>Изменения</h2>
+      <p>Если политика изменится, новая версия появится на этой странице с новой датой.</p>
+    </section>
+    <section>
+      <h2>Связь</h2>
+      <p>Вопросы о конфиденциальности: <a href="https://github.com/ilyabazhenov/walkship/issues">создай issue на GitHub</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <picture><source media="(prefers-color-scheme: light)" srcset="../../assets/walkship-horizontal-on-light.svg"><img src="../../assets/walkship-horizontal-on-dark.svg" alt="Walkship" height="28"></picture>
+    <span class="foot-tag">Go for a walk. Come back to a PR.</span>
+    <nav>
+      <a href="https://github.com/ilyabazhenov/walkship/releases">Версии</a>
+      <a href="https://github.com/ilyabazhenov/walkship/issues">Сообщить о проблеме</a>
+      <a href="../">Walkship</a>
+      <a href="../../privacy/" hreflang="en">English</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
