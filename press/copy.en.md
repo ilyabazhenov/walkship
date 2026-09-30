@@ -80,7 +80,7 @@ Walkship cloud.
 - No accounts and no Walkship cloud. The server, the database and the voices run on your Mac.
 - Speech recognition: Whisper on the Mac, the system recognizer on the phone. The assistant's voice: neural voices,
   also local.
-- The phone pairs with the Mac by QR code over your home network or Tailscale, with a single token.
+- The phone pairs with the Mac by QR code, with a single token, and reaches it from anywhere: directly at home, through an encrypted relay away from it.
 - Mac out of reach? The phone can go on with a model you set up with your own key — DeepSeek or any OpenAI-style
   API, even your own Ollama — straight from the phone.
 - Your main branch stays untouched: the agent works in its own worktree, and you decide when a PR opens.
@@ -92,7 +92,7 @@ Walkship cloud.
   enough, both work together.
 - About 5 GB free: the voice pack (Whisper and neural voices) takes about 3.3 GB.
 - git; `gh` (GitHub CLI) for pull requests.
-- Optional: an iPhone or an Android phone, and Tailscale to talk away from home.
+- Optional: an iPhone or an Android phone — it works at home and away, nothing else to install.
 - Optional: an API key for DeepSeek or another OpenAI-style model, to keep talking on the phone while the Mac is out
   of reach.
 - Interface and voice: English or Russian — one setting for both.

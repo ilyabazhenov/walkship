@@ -56,7 +56,7 @@ const copy = {
     flow: {
       zones: ["On a walk", "At home", "In the cloud"],
       you: ["Your phone", "The Walkship app: talk, listen, get a push when the work is done"],
-      link: ["voice, answers, pushes", "Wi-Fi or Tailscale"],
+      link: ["voice, answers, pushes", "Wi-Fi at home, encrypted relay away"],
       mac: ["Your Mac", "Walkship · everything is stored here", [
         ["talk", "Talks it through with you and knows the project: the code, git history, past talks"],
         [2, "Sums it up: decisions, open questions, specs"],
@@ -66,7 +66,7 @@ const copy = {
         ["cloud", "Claude or ChatGPT", "Your subscription: the models for the talk and the code, under your own login", "prompts and replies"],
         ["pr", "A pull request on GitHub", "Checks passed. It opens when you say so.", "git push"],
       ],
-      note: "There are no Walkship servers and no accounts.",
+      note: "No accounts. Away from home the phone reaches the Mac through a relay that can’t read what it carries.",
     },
     ideaLabel: "Before the code",
     ideaTitle: "Start with an idea. Connect the code when there is some.",
@@ -105,7 +105,7 @@ const copy = {
       "Your code goes only to the agents you already use — Claude Code or Codex — through their local CLIs under your own login. No API keys.",
       "No accounts and no Walkship cloud. The server, the database and the voices run on your Mac.",
       "Speech recognition: Whisper on the Mac, the system recognizer on the phone. The assistant’s voice is neural and local too.",
-      "The phone pairs with the Mac by QR code — over your home network or Tailscale.",
+      "The phone pairs with the Mac by QR code and reaches it from anywhere: directly at home, through an encrypted relay away from it.",
       "Mac out of reach? The phone can go on with a model you set up with your own key — DeepSeek or any OpenAI-style API, even your own Ollama — straight from the phone.",
       "Your main branch stays untouched: the agent works in its own worktree, and you decide when a PR opens.",
     ],
@@ -116,7 +116,7 @@ const copy = {
       "Claude Code with a Claude subscription (Pro or Max), or Codex with a ChatGPT subscription (Plus or Pro) — one is enough, both work together",
       "About 5 GB free — the voice pack takes about 3.3 GB",
       "git, and <code>gh</code> (GitHub CLI) for pull requests",
-      "Optional: an iPhone or an Android phone, and Tailscale to talk away from home",
+      "Optional: an iPhone or an Android phone — it works at home and away, nothing else to install",
       "Optional: an API key for DeepSeek or another OpenAI-style model, to keep talking on the phone while the Mac is out of reach",
       "Interface and voice: English or Russian — one setting for both",
     ],
@@ -159,19 +159,20 @@ const copy = {
     },
     policy: {
       title: "Privacy policy — Walkship",
-      description: "Walkship collects no personal data: no accounts, no Walkship servers, no analytics. Everything stays on your Mac.",
+      description: "Walkship collects no personal data: no accounts, no analytics. Everything stays on your Mac; away from home the phone reaches it through a relay that can’t read what it carries.",
       label: "Privacy policy",
       h1: "Walkship doesn’t collect your data",
-      updated: "Last updated: September 30, 2026",
-      lead: "Walkship has no accounts, no servers of its own, no analytics, no ads and no tracking. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.",
+      updated: "Last updated: October 1, 2026",
+      lead: "Walkship has no accounts, no analytics, no ads and no tracking. Its only server is a relay that connects your phone to your Mac away from home, and it can’t read what passes through it. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.",
       sections: [
         ["Where your data lives", [
-          "Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks to the Walkship server that runs on your own Mac, over your home network or a private network such as Tailscale that you set up — or, when you use it without a Mac, directly to the AI model you choose (see below).",
+          "Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks to the Walkship server that runs on your own Mac, over your home network, a private network such as Tailscale that you set up, or, away from home, the Walkship relay (see below) — or, when you use it without a Mac, directly to the AI model you choose (see below).",
           "Your conversations, transcripts, notes, summaries, features, agent logs and settings are stored in a database on your Mac, in the <code>~/.voice-assistant</code> folder. The phone keeps the address of your Mac, a pairing key and phrases waiting to be sent while the Mac is out of reach. Without a Mac, your projects, discussions, notes and the code you copy from GitHub are kept on the phone, and your model’s API key and GitHub sign-in in the system’s secure storage (Keychain on iPhone, Keystore on Android).",
           "The developer has no access to any of it.",
         ]],
         ["What leaves your devices, and where it goes", [
           "<b>AI models.</b> To answer you, write summaries and build features, your Mac runs Claude Code (Anthropic) or Codex (OpenAI) — whichever you choose — under your own account. What you say, the conversation so far and the parts of your project the assistant reads are sent to that service, exactly as if you ran the tool yourself. Web search, when you turn it on, is done by the same service. Their privacy policies apply: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
+          "<b>The Walkship relay.</b> When your phone isn’t on your Mac’s network, it reaches the Mac through the Walkship relay at relay.walkship.app, which runs on Cloudflare. Everything is encrypted on the phone and opened only on your Mac: the relay passes the encrypted data on and can read neither it nor your access token. Like any web server, it sees the IP addresses of your phone and Mac, when and how much data passed, and a random identifier of your Mac. Walkship keeps no record of it; Cloudflare’s <a href=\"https://www.cloudflare.com/privacypolicy/\">privacy policy</a> applies to its network. To keep everything inside your own network, turn the relay off in Settings → Away from home → Home only.",
           "<b>Speech recognition.</b> On the phone, Walkship uses the system speech recognizer. When the language is installed on the device, recognition happens on the device; otherwise the system may send the audio to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. On the Mac, speech is recognized locally with Whisper. The assistant’s voice is synthesized locally on the Mac.",
           "<b>Your own model, without a Mac.</b> When you use the phone without a Mac, or go on talking while the Mac is out of reach, what you say, the conversation so far, the project’s notes and the parts of its code the assistant reads are sent straight from the phone to the model service you set up with your own API key — DeepSeek, or any OpenAI-style API you enter, such as OpenRouter or your own Ollama or LM Studio. That service’s privacy policy applies. The app shows what goes to the model and asks you to agree before the first conversation.",
           "<b>Push notifications.</b> When an agent finishes or fails, your Mac sends a notification with the feature’s title and status to your phone through Expo’s push service, which hands it to Apple Push Notification service or Firebase Cloud Messaging. The phone’s push token is stored only on your Mac.",
@@ -184,7 +185,7 @@ const copy = {
           "<b>Notifications</b> — to tell you when an agent has finished.",
         ]],
         ["What the developer receives", [
-          "Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. Nothing is sold or shared, because nothing is collected.",
+          "Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. The relay only passes encrypted data between your own devices and keeps no record of it. Nothing is sold or shared, because nothing is collected.",
           "If you report a problem on GitHub, what you write there is public and handled under GitHub’s terms.",
         ]],
         ["Your control", [
@@ -226,7 +227,7 @@ const copy = {
     flow: {
       zones: ["На прогулке", "Дома", "В облаке"],
       you: ["Телефон", "Приложение Walkship: говоришь, слушаешь, получаешь пуш, когда работа готова"],
-      link: ["голос, ответы, пуши", "Wi-Fi или Tailscale"],
+      link: ["голос, ответы, пуши", "Wi-Fi дома, шифрованный ретранслятор вне дома"],
       mac: ["Твой Mac", "Walkship · всё хранится здесь", [
         ["talk", "Ведёт разговор голосом и знает проект: код, историю git, прошлые обсуждения"],
         [2, "Собирает итоги: решения, открытые вопросы, спецификации"],
@@ -236,7 +237,7 @@ const copy = {
         ["cloud", "Claude или ChatGPT", "Твоя подписка: модели для разговора и кода под твоим логином", "запросы и ответы"],
         ["pr", "Пул-реквест на GitHub", "Проверки пройдены. Откроется по твоей команде.", "git push"],
       ],
-      note: "Серверов Walkship и аккаунтов нет.",
+      note: "Аккаунтов нет. Вне дома телефон достаёт до Mac через ретранслятор, который не может прочитать то, что передаёт.",
     },
     ideaLabel: "До кода",
     ideaTitle: "Начни с идеи. Код подключишь, когда он появится.",
@@ -275,7 +276,7 @@ const copy = {
       "Код уходит только агентам, которыми ты и так пользуешься, — Claude Code или Codex — через их локальные CLI под твоим логином. Ключи API не нужны.",
       "Никаких аккаунтов и облака Walkship. Сервер, база и голоса работают на Mac.",
       "Распознавание речи — Whisper на Mac и системное на телефоне. Голос ассистента — нейро-голоса, тоже локально.",
-      "Телефон подключается к Mac по QR-коду — через домашнюю сеть или Tailscale.",
+      "Телефон подключается к Mac по QR-коду и достаёт до него откуда угодно: дома напрямую, вне дома через шифрованный ретранслятор.",
       "Mac недоступен? Телефон может продолжить через модель, которую ты настроил со своим ключом, — DeepSeek или любой API в стиле OpenAI, хоть свой Ollama, — прямо с телефона.",
       "Основная ветка не трогается: агент работает в отдельном worktree, а PR открываешь ты.",
     ],
@@ -286,7 +287,7 @@ const copy = {
       "Claude Code с подпиской Claude (Pro или Max) или Codex с подпиской ChatGPT (Plus или Pro) — хватит одного, вместе тоже работают",
       "Около 5 ГБ свободного места — голосовой пакет занимает ~3,3 ГБ",
       "git, для пул-реквестов — <code>gh</code> (GitHub CLI)",
-      "По желанию — iPhone или телефон на Android и Tailscale, чтобы говорить вне дома",
+      "По желанию — iPhone или телефон на Android: работает и дома, и вне дома, больше ничего ставить не нужно",
       "По желанию — ключ API DeepSeek или другой модели в стиле OpenAI, чтобы говорить с телефона, пока Mac недоступен",
       "Интерфейс и голос: русский или английский — одна настройка на всё",
     ],
@@ -329,19 +330,20 @@ const copy = {
     },
     policy: {
       title: "Политика конфиденциальности — Walkship",
-      description: "Walkship не собирает персональные данные: ни аккаунтов, ни серверов Walkship, ни аналитики. Всё остаётся на твоём Mac.",
+      description: "Walkship не собирает персональные данные: ни аккаунтов, ни аналитики. Всё остаётся на твоём Mac; вне дома телефон достаёт до него через ретранслятор, который не может прочитать то, что передаёт.",
       label: "Политика конфиденциальности",
       h1: "Walkship не собирает твои данные",
-      updated: "Обновлено 30 сентября 2026 года",
-      lead: "У Walkship нет аккаунтов, своих серверов, аналитики, рекламы и слежки. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.",
+      updated: "Обновлено 1 октября 2026 года",
+      lead: "У Walkship нет аккаунтов, аналитики, рекламы и слежки. Единственный его сервер — ретранслятор, который соединяет телефон с Mac вне дома, и прочитать то, что через него идёт, он не может. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.",
       sections: [
         ["Где хранятся данные", [
-          "Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть или частную сеть вроде Tailscale, которую ты настраиваешь сам, — а без Mac напрямую с моделью ИИ, которую ты выберешь (см. ниже).",
+          "Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть, частную сеть вроде Tailscale, которую ты настраиваешь сам, или, вне дома, через ретранслятор Walkship (см. ниже), — а без Mac напрямую с моделью ИИ, которую ты выберешь (см. ниже).",
           "Разговоры, расшифровки, заметки, итоги, фичи, журналы агентов и настройки хранятся в базе на твоём Mac, в папке <code>~/.voice-assistant</code>. На телефоне остаются адрес Mac, ключ подключения и фразы, которые ждут отправки, пока Mac недоступен. Без Mac проекты, обсуждения, заметки и код, скопированный с GitHub, хранятся на телефоне, а API-ключ модели и вход в GitHub — в защищённом хранилище системы (Keychain на iPhone, Keystore на Android).",
           "У разработчика нет доступа ни к чему из этого.",
         ]],
         ["Что уходит с устройств и куда", [
           "<b>Модели ИИ.</b> Чтобы отвечать, собирать итоги и реализовывать фичи, Mac запускает Claude Code (Anthropic) или Codex (OpenAI) — что ты выберешь — под твоим собственным аккаунтом. Сказанное тобой, ход разговора и части проекта, которые читает ассистент, уходят в этот сервис — так же, как если бы ты запускал инструмент сам. Поиск в интернете, если он включён, выполняет тот же сервис. Действуют их политики: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
+          "<b>Ретранслятор Walkship.</b> Когда телефон не в сети твоего Mac, он подключается к Mac через ретранслятор Walkship по адресу relay.walkship.app, который работает на Cloudflare. Всё шифруется на телефоне и открывается только на Mac: ретранслятор пересылает зашифрованные данные и не может прочитать ни их, ни твой токен доступа. Как любой веб-сервер, он видит IP-адреса телефона и Mac, когда и сколько данных прошло и случайный идентификатор Mac. Walkship ничего из этого не хранит; к сети Cloudflare применяется их <a href=\"https://www.cloudflare.com/privacypolicy/\">политика конфиденциальности</a>. Чтобы всё оставалось внутри твоей сети, выключи ретранслятор: Настройки → «Работа вне дома» → «Только дома».",
           "<b>Распознавание речи.</b> На телефоне Walkship использует системное распознавание. Если язык установлен на устройстве, речь распознаётся на нём; иначе система может отправить звук в Apple (iPhone) или Google (Android), чтобы превратить его в текст, — по их политикам. На Mac речь распознаётся локально через Whisper. Голос ассистента синтезируется локально на Mac.",
           "<b>Своя модель, без Mac.</b> Когда ты пользуешься телефоном без Mac или продолжаешь разговор, пока Mac недоступен, сказанное тобой, ход разговора, заметки проекта и части его кода, которые читает ассистент, уходят прямо с телефона в сервис модели, который ты настроил со своим API-ключом, — DeepSeek или любой API в стиле OpenAI, который ты укажешь, например OpenRouter или свой Ollama или LM Studio. Действует политика этого сервиса. Перед первым разговором приложение показывает, что уходит в модель, и просит согласия.",
           "<b>Пуш-уведомления.</b> Когда агент закончил или упал, Mac отправляет на телефон уведомление с названием фичи и статусом через пуш-сервис Expo, а тот передаёт его в Apple Push Notification service или Firebase Cloud Messaging. Пуш-токен телефона хранится только на Mac.",
@@ -354,7 +356,7 @@ const copy = {
           "<b>Уведомления</b> — чтобы сообщить, что агент закончил работу.",
         ]],
         ["Что получает разработчик", [
-          "Ничего. В Walkship нет аналитики, отчётов о сбоях, рекламы и сторонней слежки, приложение не использует рекламный идентификатор. Ничего не продаётся и не передаётся, потому что ничего не собирается.",
+          "Ничего. В Walkship нет аналитики, отчётов о сбоях, рекламы и сторонней слежки, приложение не использует рекламный идентификатор. Ретранслятор только пересылает зашифрованные данные между твоими устройствами и ничего о них не хранит. Ничего не продаётся и не передаётся, потому что ничего не собирается.",
           "Если ты сообщишь о проблеме на GitHub, написанное там будет публичным и подчиняется правилам GitHub.",
         ]],
         ["Управление данными", [

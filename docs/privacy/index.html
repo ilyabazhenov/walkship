@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy — Walkship</title>
-<meta name="description" content="Walkship collects no personal data: no accounts, no Walkship servers, no analytics. Everything stays on your Mac.">
+<meta name="description" content="Walkship collects no personal data: no accounts, no analytics. Everything stays on your Mac; away from home the phone reaches it through a relay that can’t read what it carries.">
 <link rel="canonical" href="https://walkship.app/privacy/">
 <link rel="alternate" hreflang="en" href="https://walkship.app/privacy/">
 <link rel="alternate" hreflang="ru" href="https://walkship.app/ru/privacy/">
@@ -31,17 +31,18 @@
   <div class="wrap">
     <p class="label">Privacy policy</p>
     <h1>Walkship doesn’t collect your data</h1>
-    <p class="legal-date">Last updated: September 30, 2026</p>
-    <p class="legal-lead">Walkship has no accounts, no servers of its own, no analytics, no ads and no tracking. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.</p>
+    <p class="legal-date">Last updated: October 1, 2026</p>
+    <p class="legal-lead">Walkship has no accounts, no analytics, no ads and no tracking. Its only server is a relay that connects your phone to your Mac away from home, and it can’t read what passes through it. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.</p>
     <section>
       <h2>Where your data lives</h2>
-      <p>Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks to the Walkship server that runs on your own Mac, over your home network or a private network such as Tailscale that you set up — or, when you use it without a Mac, directly to the AI model you choose (see below).</p>
+      <p>Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks to the Walkship server that runs on your own Mac, over your home network, a private network such as Tailscale that you set up, or, away from home, the Walkship relay (see below) — or, when you use it without a Mac, directly to the AI model you choose (see below).</p>
       <p>Your conversations, transcripts, notes, summaries, features, agent logs and settings are stored in a database on your Mac, in the <code>~/.voice-assistant</code> folder. The phone keeps the address of your Mac, a pairing key and phrases waiting to be sent while the Mac is out of reach. Without a Mac, your projects, discussions, notes and the code you copy from GitHub are kept on the phone, and your model’s API key and GitHub sign-in in the system’s secure storage (Keychain on iPhone, Keystore on Android).</p>
       <p>The developer has no access to any of it.</p>
     </section>
     <section>
       <h2>What leaves your devices, and where it goes</h2>
       <p><b>AI models.</b> To answer you, write summaries and build features, your Mac runs Claude Code (Anthropic) or Codex (OpenAI) — whichever you choose — under your own account. What you say, the conversation so far and the parts of your project the assistant reads are sent to that service, exactly as if you ran the tool yourself. Web search, when you turn it on, is done by the same service. Their privacy policies apply: <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, <a href="https://openai.com/policies/privacy-policy/">OpenAI</a>.</p>
+      <p><b>The Walkship relay.</b> When your phone isn’t on your Mac’s network, it reaches the Mac through the Walkship relay at relay.walkship.app, which runs on Cloudflare. Everything is encrypted on the phone and opened only on your Mac: the relay passes the encrypted data on and can read neither it nor your access token. Like any web server, it sees the IP addresses of your phone and Mac, when and how much data passed, and a random identifier of your Mac. Walkship keeps no record of it; Cloudflare’s <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a> applies to its network. To keep everything inside your own network, turn the relay off in Settings → Away from home → Home only.</p>
       <p><b>Speech recognition.</b> On the phone, Walkship uses the system speech recognizer. When the language is installed on the device, recognition happens on the device; otherwise the system may send the audio to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. On the Mac, speech is recognized locally with Whisper. The assistant’s voice is synthesized locally on the Mac.</p>
       <p><b>Your own model, without a Mac.</b> When you use the phone without a Mac, or go on talking while the Mac is out of reach, what you say, the conversation so far, the project’s notes and the parts of its code the assistant reads are sent straight from the phone to the model service you set up with your own API key — DeepSeek, or any OpenAI-style API you enter, such as OpenRouter or your own Ollama or LM Studio. That service’s privacy policy applies. The app shows what goes to the model and asks you to agree before the first conversation.</p>
       <p><b>Push notifications.</b> When an agent finishes or fails, your Mac sends a notification with the feature’s title and status to your phone through Expo’s push service, which hands it to Apple Push Notification service or Firebase Cloud Messaging. The phone’s push token is stored only on your Mac.</p>
@@ -56,7 +57,7 @@
     </section>
     <section>
       <h2>What the developer receives</h2>
-      <p>Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. Nothing is sold or shared, because nothing is collected.</p>
+      <p>Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. The relay only passes encrypted data between your own devices and keeps no record of it. Nothing is sold or shared, because nothing is collected.</p>
       <p>If you report a problem on GitHub, what you write there is public and handled under GitHub’s terms.</p>
     </section>
     <section>

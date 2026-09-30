@@ -47,11 +47,11 @@ WHAT YOU NEED
 Walkship on iPhone is the companion to the free Walkship app for Mac, which does the work:
 • A Mac with Apple Silicon and macOS 14 or later, with Walkship for Mac from walkship.app
 • Claude Code with a Claude subscription, or Codex with a ChatGPT subscription — one is enough
-• The phone pairs with the Mac by QR code, over your home network or Tailscale away from home
+• The phone pairs with the Mac by QR code and reaches it from anywhere — directly at home, through an encrypted relay away from it
 • Optional: your own API key for DeepSeek or another OpenAI-style model, to keep talking while the Mac is out of reach
 
 PRIVATE BY DESIGN
-No accounts, no Walkship servers, no analytics, no ads. Your conversations and projects stay on your Mac; your code goes only to the agent you already use, under your own login. Without the Mac, the phone keeps them itself and talks straight to the model you set up with your own key. Your main branch stays untouched — the agent works in its own git worktree, and a pull request opens only when you say so.
+No accounts, no analytics, no ads. Your conversations and projects stay on your Mac — away from home the phone reaches it through an encrypted relay that can’t read them; your code goes only to the agent you already use, under your own login. Without the Mac, the phone keeps them itself and talks straight to the model you set up with your own key. Your main branch stays untouched — the agent works in its own git worktree, and a pull request opens only when you say so.
 ```
 
 ## Keywords (100)
@@ -71,7 +71,7 @@ voice,ai,coding,agent,assistant,developer,programmer,spec,code,git,ideas,notes,b
 App Store Connect → App Review → Notes. "Sign-in required" stays off: there are no accounts, the demo opens without one.
 
 ```
-Walkship is the iPhone companion to Walkship for Mac, a free app the user runs on their own Mac (like the Plex or Home Assistant apps, which talk to a server the user hosts). The Mac does the work: it runs the user's own Claude Code or Codex under the user's own subscription. When the Mac is out of reach, the phone can go on by itself with an OpenAI-compatible model the user sets up with their own API key (DeepSeek preset), and optionally read code from GitHub after a sign-in; everything moves to the Mac once it's back. There are no Walkship accounts and no Walkship servers.
+Walkship is the iPhone companion to Walkship for Mac, a free app the user runs on their own Mac (like the Plex or Home Assistant apps, which talk to a server the user hosts). The Mac does the work: it runs the user's own Claude Code or Codex under the user's own subscription. When the Mac is out of reach, the phone can go on by itself with an OpenAI-compatible model the user sets up with their own API key (DeepSeek preset), and optionally read code from GitHub after a sign-in; everything moves to the Mac once it's back. There are no Walkship accounts. Away from the Mac's network the phone reaches it through the Walkship relay (relay.walkship.app, HTTPS), which only forwards data encrypted end to end between the phone and the Mac.
 
 HOW TO REVIEW WITHOUT A MAC — the built-in demo
 1. On first launch, read the notice about where conversations go and tap "Agree and continue".
@@ -84,13 +84,13 @@ HOW TO REVIEW WITHOUT A MAC — the built-in demo
 "Exit" on the demo banner leaves the demo. Nothing in the demo leaves the device.
 
 REAL USE (not needed for review)
-Requires a Mac with Apple Silicon (macOS 14+) running Walkship for Mac (https://walkship.app/) and a Claude or ChatGPT subscription. The phone pairs with the Mac by QR code over the home network or the user's own Tailscale network.
+Requires a Mac with Apple Silicon (macOS 14+) running Walkship for Mac (https://walkship.app/) and a Claude or ChatGPT subscription. The phone pairs with the Mac by QR code; it talks to the Mac directly on the home network and through the Walkship relay elsewhere.
 
 PERMISSIONS AND CONFIGURATION
 - Microphone and Speech Recognition: to hear the user during a conversation. Nothing is recorded in the background and no audio is stored.
 - Local Network: to connect to the Walkship app on the user's own Mac.
 - Background audio (UIBackgroundModes: audio): during a hands-free conversation on a walk, the assistant's reply keeps playing after the screen locks.
-- NSAllowsArbitraryLoads: the app connects to the server the user runs on their own Mac, by a local-network or Tailscale address over plain HTTP, which cannot have a public TLS certificate; the same applies to a model the user may run on their own network (Ollama, LM Studio). Beyond that, the app contacts only services the user sets up: the model API they entered a key for, and GitHub if they sign in.
+- NSAllowsArbitraryLoads: the app connects to the server the user runs on their own Mac, by a local-network or Tailscale address over plain HTTP (away from home it goes through the HTTPS relay instead), which cannot have a public TLS certificate; the same applies to a model the user may run on their own network (Ollama, LM Studio). Beyond that, the app contacts only services the user sets up: the model API they entered a key for, and GitHub if they sign in.
 - Photo Library and Camera: to send a screenshot or a photo the user picks to the assistant, as part of the conversation.
 - Notifications: optional, to tell the user when a coding agent has finished.
 

@@ -49,7 +49,7 @@ any OpenAI-style API), remembering what the Mac knew about the project; once the
 
 Walkship has no cloud and no accounts. The server, the database, speech recognition (Whisper) and the neural voices
 run on your Mac. The conversation, summaries and code run on the local Claude Code or Codex CLI — your pick for each
-— all under your own login and subscription, no API keys. The phone pairs with the Mac by QR code over your home network or [Tailscale](https://tailscale.com).
+— all under your own login and subscription, no API keys. The phone pairs with the Mac by QR code and reaches it from anywhere: directly at home, through an encrypted relay away from it.
 
 ## Install
 
