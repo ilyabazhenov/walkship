@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://github.com/ilyabazhenov/walkship/releases/latest"><b>Скачать</b></a> ·
-  <a href="https://ilyabazhenov.github.io/walkship/ru/">Сайт</a> ·
+  <a href="https://walkship.app/ru/">Сайт</a> ·
   <a href="README.md">English</a>
 </p>
 

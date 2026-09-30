@@ -45,7 +45,7 @@ EVERYTHING A THINKING WALK NEEDS
 
 WHAT YOU NEED
 Walkship on iPhone is the companion to the free Walkship app for Mac, which does the work:
-• A Mac with Apple Silicon and macOS 14 or later, with Walkship for Mac from ilyabazhenov.github.io/walkship
+• A Mac with Apple Silicon and macOS 14 or later, with Walkship for Mac from walkship.app
 • Claude Code with a Claude subscription, or Codex with a ChatGPT subscription — one is enough
 • The phone pairs with the Mac by QR code, over your home network or Tailscale away from home
 • Optional: your own API key for DeepSeek or another OpenAI-style model, to keep talking while the Mac is out of reach
@@ -63,8 +63,8 @@ voice,ai,coding,agent,assistant,developer,programmer,spec,code,git,ideas,notes,b
 ## URLs
 
 - Support: https://github.com/ilyabazhenov/walkship/issues
-- Marketing: https://ilyabazhenov.github.io/walkship/
-- Privacy policy: https://ilyabazhenov.github.io/walkship/privacy/
+- Marketing: https://walkship.app/
+- Privacy policy: https://walkship.app/privacy/
 
 ## App Review notes (4000)
 
@@ -84,7 +84,7 @@ HOW TO REVIEW WITHOUT A MAC — the built-in demo
 "Exit" on the demo banner leaves the demo. Nothing in the demo leaves the device.
 
 REAL USE (not needed for review)
-Requires a Mac with Apple Silicon (macOS 14+) running Walkship for Mac (https://ilyabazhenov.github.io/walkship/) and a Claude or ChatGPT subscription. The phone pairs with the Mac by QR code over the home network or the user's own Tailscale network.
+Requires a Mac with Apple Silicon (macOS 14+) running Walkship for Mac (https://walkship.app/) and a Claude or ChatGPT subscription. The phone pairs with the Mac by QR code over the home network or the user's own Tailscale network.
 
 PERMISSIONS AND CONFIGURATION
 - Microphone and Speech Recognition: to hear the user during a conversation. Nothing is recorded in the background and no audio is stored.
@@ -95,7 +95,7 @@ PERMISSIONS AND CONFIGURATION
 - Notifications: optional, to tell the user when a coding agent has finished.
 
 PRIVACY
-No accounts, no analytics, no ads, no tracking. Conversations and projects stay on the user's Mac. The Mac sends conversation text to Anthropic (Claude) or OpenAI (ChatGPT/Codex) under the user's own account; the app explains this on first launch and asks for agreement (guideline 5.1.2(i)). Without the Mac, the phone sends the conversation straight to the model service the user set up with their own key, and asks for agreement before the first such conversation. Privacy policy: https://ilyabazhenov.github.io/walkship/privacy/
+No accounts, no analytics, no ads, no tracking. Conversations and projects stay on the user's Mac. The Mac sends conversation text to Anthropic (Claude) or OpenAI (ChatGPT/Codex) under the user's own account; the app explains this on first launch and asks for agreement (guideline 5.1.2(i)). Without the Mac, the phone sends the conversation straight to the model service the user set up with their own key, and asks for agreement before the first such conversation. Privacy policy: https://walkship.app/privacy/
 ```
 
 ## App information

@@ -45,7 +45,7 @@ Walkship — голосовой партнёр для твоих проекто�
 
 ЧТО НУЖНО
 Walkship на iPhone работает вместе с бесплатным приложением Walkship для Mac, которое делает всю работу:
-• Mac с Apple Silicon и macOS 14 или новее, на нём Walkship для Mac с сайта ilyabazhenov.github.io/walkship/ru
+• Mac с Apple Silicon и macOS 14 или новее, на нём Walkship для Mac с сайта walkship.app/ru
 • Claude Code с подпиской Claude или Codex с подпиской ChatGPT — хватит одного
 • Телефон подключается к Mac по QR-коду — через домашнюю сеть или Tailscale вне дома
 • По желанию — свой API-ключ DeepSeek или другой модели в стиле OpenAI, чтобы говорить, пока Mac недоступен
@@ -65,5 +65,5 @@ Walkship на iPhone работает вместе с бесплатным пр�
 ## Ссылки
 
 - Поддержка: https://github.com/ilyabazhenov/walkship/issues
-- Маркетинг: https://ilyabazhenov.github.io/walkship/ru/
-- Политика конфиденциальности: https://ilyabazhenov.github.io/walkship/ru/privacy/
+- Маркетинг: https://walkship.app/ru/
+- Политика конфиденциальности: https://walkship.app/ru/privacy/

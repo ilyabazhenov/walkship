@@ -7,7 +7,7 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const REPO = "https://github.com/ilyabazhenov/walkship";
-const SITE = "https://ilyabazhenov.github.io/walkship";
+const SITE = "https://walkship.app";
 // Opens Obtainium on an Android phone with this repo ready to add; the redirect page helps browsers that block custom schemes.
 const OBTAINIUM = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO}`;
 
