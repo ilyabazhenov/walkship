@@ -149,24 +149,25 @@ const copy = {
       description: "Walkship collects no personal data: no accounts, no Walkship servers, no analytics. Everything stays on your Mac.",
       label: "Privacy policy",
       h1: "Walkship doesn’t collect your data",
-      updated: "Last updated: September 28, 2026",
+      updated: "Last updated: September 30, 2026",
       lead: "Walkship has no accounts, no servers of its own, no analytics, no ads and no tracking. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.",
       sections: [
         ["Where your data lives", [
-          "Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks only to the Walkship server that runs on your own Mac, over your home network or a private network such as Tailscale that you set up.",
-          "Your conversations, transcripts, notes, summaries, features, agent logs and settings are stored in a database on your Mac, in the <code>~/.voice-assistant</code> folder. The phone keeps only the address of your Mac, a pairing key and phrases waiting to be sent while the Mac is out of reach.",
+          "Walkship is a Mac app and a phone app (iPhone and Android). The phone app talks to the Walkship server that runs on your own Mac, over your home network or a private network such as Tailscale that you set up — or, when you use it without a Mac, directly to the AI model you choose (see below).",
+          "Your conversations, transcripts, notes, summaries, features, agent logs and settings are stored in a database on your Mac, in the <code>~/.voice-assistant</code> folder. The phone keeps the address of your Mac, a pairing key and phrases waiting to be sent while the Mac is out of reach. Without a Mac, your projects, discussions, notes and the code you copy from GitHub are kept on the phone, and your model’s API key and GitHub sign-in in the system’s secure storage (Keychain on iPhone, Keystore on Android).",
           "The developer has no access to any of it.",
         ]],
         ["What leaves your devices, and where it goes", [
           "<b>AI models.</b> To answer you, write summaries and build features, your Mac runs Claude Code (Anthropic) or Codex (OpenAI) — whichever you choose — under your own account. What you say, the conversation so far and the parts of your project the assistant reads are sent to that service, exactly as if you ran the tool yourself. Web search, when you turn it on, is done by the same service. Their privacy policies apply: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
           "<b>Speech recognition.</b> On the phone, Walkship uses the system speech recognizer. When the language is installed on the device, recognition happens on the device; otherwise the system may send the audio to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. On the Mac, speech is recognized locally with Whisper. The assistant’s voice is synthesized locally on the Mac.",
+          "<b>Your own model, without a Mac.</b> When you use the phone without a Mac, or go on talking while the Mac is out of reach, what you say, the conversation so far, the project’s notes and the parts of its code the assistant reads are sent straight from the phone to the model service you set up with your own API key — DeepSeek, or any OpenAI-style API you enter, such as OpenRouter or your own Ollama or LM Studio. That service’s privacy policy applies. The app shows what goes to the model and asks you to agree before the first conversation.",
           "<b>Push notifications.</b> When an agent finishes or fails, your Mac sends a notification with the feature’s title and status to your phone through Expo’s push service, which hands it to Apple Push Notification service or Firebase Cloud Messaging. The phone’s push token is stored only on your Mac.",
-          "<b>GitHub.</b> Pull requests are opened with your own <code>git</code> and <code>gh</code> setup when you ask for one. The Mac app checks GitHub for new versions of Walkship; that request carries no personal data beyond what any web request does, such as your IP address.",
+          "<b>GitHub.</b> Pull requests are opened with your own <code>git</code> and <code>gh</code> setup when you ask for one. The Mac app checks GitHub for new versions of Walkship; that request carries no personal data beyond what any web request does, such as your IP address. Without a Mac, you can sign in to GitHub with a code through the Walkship GitHub App; the phone then downloads the repository and branch you pick straight from GitHub. The developer never sees your sign-in or your code.",
           "<b>Services you connect.</b> If you add MCP servers (for example Jira, Sentry or a database), the assistant sends them requests on your behalf, as you configure.",
         ]],
         ["Permissions", [
           "<b>Microphone and speech recognition</b> — to hear you while you talk to the assistant. Walkship doesn’t record in the background and doesn’t keep audio.",
-          "<b>Photo library</b> — iOS asks apps to describe this because the system file picker can read photo albums. Walkship doesn’t open your photos.",
+          "<b>Photo library and camera</b> — to send a screenshot or a photo to the assistant when you choose one. Only the picture you pick is used; it goes along with the conversation, like your words.",
           "<b>Notifications</b> — to tell you when an agent has finished.",
         ]],
         ["What the developer receives", [
@@ -174,7 +175,7 @@ const copy = {
           "If you report a problem on GitHub, what you write there is public and handled under GitHub’s terms.",
         ]],
         ["Your control", [
-          "Projects, discussions, notes and features can be deleted in the app. To remove everything, delete the Walkship apps and the <code>~/.voice-assistant</code> folder on your Mac. To stop sending data to Anthropic or OpenAI, sign out of Claude Code or Codex; their data is managed in your accounts with them.",
+          "Projects, discussions, notes and features can be deleted in the app. To remove everything, delete the Walkship apps and the <code>~/.voice-assistant</code> folder on your Mac. To stop sending data to Anthropic or OpenAI, sign out of Claude Code or Codex; their data is managed in your accounts with them. Without a Mac, deleting the phone app removes everything it keeps, and GitHub access is revoked by uninstalling the Walkship GitHub App in your GitHub settings.",
         ]],
         ["Children", [
           "Walkship is a tool for software developers and isn’t directed at children.",
@@ -305,24 +306,25 @@ const copy = {
       description: "Walkship не собирает персональные данные: ни аккаунтов, ни серверов Walkship, ни аналитики. Всё остаётся на твоём Mac.",
       label: "Политика конфиденциальности",
       h1: "Walkship не собирает твои данные",
-      updated: "Обновлено 28 сентября 2026 года",
+      updated: "Обновлено 30 сентября 2026 года",
       lead: "У Walkship нет аккаунтов, своих серверов, аналитики, рекламы и слежки. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.",
       sections: [
         ["Где хранятся данные", [
-          "Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается только с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть или частную сеть вроде Tailscale, которую ты настраиваешь сам.",
-          "Разговоры, расшифровки, заметки, итоги, фичи, журналы агентов и настройки хранятся в базе на твоём Mac, в папке <code>~/.voice-assistant</code>. На телефоне остаются только адрес Mac, ключ подключения и фразы, которые ждут отправки, пока Mac недоступен.",
+          "Walkship — это приложение для Mac и приложение для телефона (iPhone и Android). Телефон общается с сервером Walkship, который работает на твоём Mac, — через домашнюю сеть или частную сеть вроде Tailscale, которую ты настраиваешь сам, — а без Mac напрямую с моделью ИИ, которую ты выберешь (см. ниже).",
+          "Разговоры, расшифровки, заметки, итоги, фичи, журналы агентов и настройки хранятся в базе на твоём Mac, в папке <code>~/.voice-assistant</code>. На телефоне остаются адрес Mac, ключ подключения и фразы, которые ждут отправки, пока Mac недоступен. Без Mac проекты, обсуждения, заметки и код, скопированный с GitHub, хранятся на телефоне, а API-ключ модели и вход в GitHub — в защищённом хранилище системы (Keychain на iPhone, Keystore на Android).",
           "У разработчика нет доступа ни к чему из этого.",
         ]],
         ["Что уходит с устройств и куда", [
           "<b>Модели ИИ.</b> Чтобы отвечать, собирать итоги и реализовывать фичи, Mac запускает Claude Code (Anthropic) или Codex (OpenAI) — что ты выберешь — под твоим собственным аккаунтом. Сказанное тобой, ход разговора и части проекта, которые читает ассистент, уходят в этот сервис — так же, как если бы ты запускал инструмент сам. Поиск в интернете, если он включён, выполняет тот же сервис. Действуют их политики: <a href=\"https://www.anthropic.com/legal/privacy\">Anthropic</a>, <a href=\"https://openai.com/policies/privacy-policy/\">OpenAI</a>.",
           "<b>Распознавание речи.</b> На телефоне Walkship использует системное распознавание. Если язык установлен на устройстве, речь распознаётся на нём; иначе система может отправить звук в Apple (iPhone) или Google (Android), чтобы превратить его в текст, — по их политикам. На Mac речь распознаётся локально через Whisper. Голос ассистента синтезируется локально на Mac.",
+          "<b>Своя модель, без Mac.</b> Когда ты пользуешься телефоном без Mac или продолжаешь разговор, пока Mac недоступен, сказанное тобой, ход разговора, заметки проекта и части его кода, которые читает ассистент, уходят прямо с телефона в сервис модели, который ты настроил со своим API-ключом, — DeepSeek или любой API в стиле OpenAI, который ты укажешь, например OpenRouter или свой Ollama или LM Studio. Действует политика этого сервиса. Перед первым разговором приложение показывает, что уходит в модель, и просит согласия.",
           "<b>Пуш-уведомления.</b> Когда агент закончил или упал, Mac отправляет на телефон уведомление с названием фичи и статусом через пуш-сервис Expo, а тот передаёт его в Apple Push Notification service или Firebase Cloud Messaging. Пуш-токен телефона хранится только на Mac.",
-          "<b>GitHub.</b> Пул-реквесты открываются через твои <code>git</code> и <code>gh</code>, когда ты об этом попросишь. Приложение для Mac проверяет на GitHub новые версии Walkship; этот запрос не несёт персональных данных, кроме того, что есть в любом веб-запросе, например IP-адреса.",
+          "<b>GitHub.</b> Пул-реквесты открываются через твои <code>git</code> и <code>gh</code>, когда ты об этом попросишь. Приложение для Mac проверяет на GitHub новые версии Walkship; этот запрос не несёт персональных данных, кроме того, что есть в любом веб-запросе, например IP-адреса. Без Mac можно войти в GitHub по коду через приложение Walkship для GitHub; тогда телефон скачивает выбранные репозиторий и ветку прямо с GitHub. Разработчик не видит ни твоего входа, ни кода.",
           "<b>Подключённые сервисы.</b> Если ты добавишь MCP-серверы (например, Jira, Sentry или базу данных), ассистент будет отправлять им запросы от твоего имени — так, как ты их настроил.",
         ]],
         ["Разрешения", [
           "<b>Микрофон и распознавание речи</b> — чтобы слышать тебя, пока ты говоришь с ассистентом. Walkship не записывает в фоне и не хранит звук.",
-          "<b>Фотографии</b> — iOS требует описать это разрешение, потому что системный выбор файлов умеет читать фотоальбом. Walkship не открывает твои фото.",
+          "<b>Фотографии и камера</b> — чтобы отправить ассистенту скриншот или фото, когда ты его выберешь. Используется только выбранная картинка; она уходит вместе с разговором, как и твои слова.",
           "<b>Уведомления</b> — чтобы сообщить, что агент закончил работу.",
         ]],
         ["Что получает разработчик", [
@@ -330,7 +332,7 @@ const copy = {
           "Если ты сообщишь о проблеме на GitHub, написанное там будет публичным и подчиняется правилам GitHub.",
         ]],
         ["Управление данными", [
-          "Проекты, обсуждения, заметки и фичи удаляются в приложении. Чтобы удалить всё, удали приложения Walkship и папку <code>~/.voice-assistant</code> на Mac. Чтобы перестать отправлять данные в Anthropic или OpenAI, выйди из Claude Code или Codex; данными у них управляешь в своих аккаунтах.",
+          "Проекты, обсуждения, заметки и фичи удаляются в приложении. Чтобы удалить всё, удали приложения Walkship и папку <code>~/.voice-assistant</code> на Mac. Чтобы перестать отправлять данные в Anthropic или OpenAI, выйди из Claude Code или Codex; данными у них управляешь в своих аккаунтах. Без Mac удаление приложения на телефоне стирает всё, что оно хранит, а доступ к GitHub отзывается удалением приложения Walkship для GitHub в настройках GitHub.",
         ]],
         ["Дети", [
           "Walkship — инструмент для разработчиков и не предназначен для детей.",
