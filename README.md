@@ -20,7 +20,7 @@
   </picture>
 </p>
 
-Walkship is a voice partner for your projects. Talk a feature through while you walk: the assistant knows your
+Walkship is a voice partner for your projects. Talk a feature or a new product idea through while you walk: the assistant knows your
 code, its git history and your past discussions. It turns the conversation into decisions, open questions and
 features with acceptance criteria. One tap, and your coding agent — Claude Code or Codex — builds the feature on its
 own branch on your Mac, runs the checks and sends a push to your phone. Talk the result over, say "open it", and the pull request is up.
@@ -37,6 +37,13 @@ own branch on your Mac, runs the checks and sends a push to your phone. Talk the
 Also: quick voice notes filed under the right project, a feature board across all projects, memory of past
 discussions, a spoken digest, mockups in the conversation, one-click hand-off to Claude Code, Cursor or Codex,
 an MCP server for your coding agents, and an offline outbox on the phone.
+
+**Before the code.** A project can start without a repository: a product idea you talk over across several walks,
+with memory and summaries that keep to-dos instead of features. When the repository exists, "Connect code" attaches
+it, and the to-dos can go to an agent. Presets also cover a trip, a renovation, a move or an event.
+
+**When the Mac is out of reach.** The phone can go on talking through a model with your own API key (DeepSeek or
+any OpenAI-style API), remembering what the Mac knew about the project; once the Mac is back, everything moves over.
 
 ## Runs on your Mac
 

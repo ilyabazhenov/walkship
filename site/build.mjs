@@ -37,11 +37,11 @@ const copy = {
     dir: "",
     other: { href: "ru/", label: "RU", name: "Русский" },
     title: "Walkship — go for a walk, come back to a PR",
-    description: "A voice partner for your projects. Talk a feature through on a walk; Walkship writes the spec, and Claude Code or Codex builds it on your Mac.",
+    description: "A voice partner for your projects. Talk a feature or a new product idea through on a walk; Walkship writes the spec, and Claude Code or Codex builds it on your Mac.",
     nav: { how: "How it works", features: "Features", privacy: "Privacy", faq: "FAQ", download: "Download" },
     eyebrow: "A voice partner for your projects",
     h1: "Go for a walk.<br>Come back to a PR.",
-    sub: "Talk a feature through while you walk. Walkship turns the conversation into a spec, and your coding agent — Claude Code or Codex — builds it on your Mac.",
+    sub: "Talk through a feature or a new product idea while you walk. Walkship turns the conversation into a spec, and your coding agent — Claude Code or Codex — builds it on your Mac.",
     mac: "Download for Mac",
     apk: "Android APK",
     caption: "Beta · Apple Silicon Mac, macOS 14+ · requires Claude Code or Codex",
@@ -68,6 +68,16 @@ const copy = {
       ],
       note: "There are no Walkship servers and no accounts.",
     },
+    ideaLabel: "Before the code",
+    ideaTitle: "Start with an idea. Connect the code when there is some.",
+    ideaSub: "A product often begins as a conversation, long before a repository. Walkship keeps it from the first walk to the first PR.",
+    idea: [
+      "A project can start without code: an idea you talk over across several walks, with memory, notes and summaries",
+      "The Product preset gives the assistant the right habits: tell what’s checked from what’s a guess, keep to the first version",
+      "Instead of features, the summary keeps to-dos you tick off, on the Mac and the phone alike",
+      "Once a repository exists, “Connect code” attaches the folder: discussions and to-dos stay, and to-dos can go to an agent",
+      "Not just code: presets for a trip, a renovation, a move or an event — the same talks, memory and summaries",
+    ],
     featLabel: "Features",
     featTitle: "Everything a thinking walk needs",
     features: [
@@ -79,7 +89,7 @@ const copy = {
       ["mac", "Continue on the Mac", "Open a spec or a transcript in Claude Code, Cursor or Codex with one click."],
       ["mcp", "MCP for your agents", "Claude Code, Cursor and Codex in the repo can see the project’s ideas, decisions and features."],
       ["plug", "Your MCP servers", "Connect Jira, Sentry or a database, and the assistant uses them in conversation."],
-      ["offline", "Nothing lost offline", "A phrase you said waits on the phone and goes out once the server is back."],
+      ["offline", "When the Mac is out of reach", "A phrase you said waits on the phone and goes out once the Mac is back. Or go on talking through a model with your own key — it all moves to the Mac later."],
     ],
     agentsLabel: "Claude or Codex",
     agentsTitle: "Your agent, your subscription — for every role",
@@ -90,12 +100,13 @@ const copy = {
       "Both subscriptions’ limits side by side, on the Mac and the phone",
     ],
     privLabel: "Privacy",
-    privTitle: "Runs on your Mac. Nowhere else.",
+    privTitle: "Your Mac, your accounts. No Walkship cloud.",
     privacy: [
       "Your code goes only to the agents you already use — Claude Code or Codex — through their local CLIs under your own login. No API keys.",
       "No accounts and no Walkship cloud. The server, the database and the voices run on your Mac.",
       "Speech recognition: Whisper on the Mac, the system recognizer on the phone. The assistant’s voice is neural and local too.",
       "The phone pairs with the Mac by QR code — over your home network or Tailscale.",
+      "Mac out of reach? The phone can go on with a model you set up with your own key — DeepSeek or any OpenAI-style API, even your own Ollama — straight from the phone.",
       "Your main branch stays untouched: the agent works in its own worktree, and you decide when a PR opens.",
     ],
     reqLabel: "Requirements",
@@ -106,6 +117,7 @@ const copy = {
       "About 5 GB free — the voice pack takes about 3.3 GB",
       "git, and <code>gh</code> (GitHub CLI) for pull requests",
       "Optional: an iPhone or an Android phone, and Tailscale to talk away from home",
+      "Optional: an API key for DeepSeek or another OpenAI-style model, to keep talking on the phone while the Mac is out of reach",
       "Interface and voice: English or Russian — one setting for both",
     ],
     dlTitle: "Take your next idea for a walk",
@@ -115,9 +127,10 @@ const copy = {
     qr: "On the Mac? Point your Android phone’s camera here to download the APK on it.",
     faqLabel: "FAQ",
     faq: [
-      ["Do I need an API key?", "No. Everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription."],
+      ["Do I need an API key?", "Not with the Mac: everything runs through Claude Code or Codex on your own Claude or ChatGPT subscription. A key is needed only to keep talking on the phone while the Mac is out of reach — for DeepSeek or any OpenAI-style API."],
       ["Can I use Codex instead of Claude Code?", "Yes, for everything: in Settings → Agents & models the conversation, summaries and implementation each pick Claude or Codex and a model. When one subscription runs out, the assistant offers to go on with the other."],
-      ["Where does my code go?", "Only to the agents you use — Claude Code or Codex — exactly as if you ran them yourself. Walkship has no cloud server."],
+      ["Where does my code go?", "Only to the agents you use — Claude Code or Codex — exactly as if you ran them yourself. When you talk on the phone without the Mac, what the assistant reads goes to the model you set up with your own key. Walkship has no cloud server."],
+      ["What if my Mac is off?", "The phone offers to go on through your own model. It remembers what the Mac knew about the project — past summaries, features, notes — and reads the code from GitHub if you sign in. Once the Mac is back, everything you said moves over to it, and a feature you asked to build starts there."],
       ["Is there an iPhone app?", "Yes, it’s on its way to the App Store. Android is available now as an APK, and on the Mac you can talk right in the app."],
       ["Can the agent break my repository?", "It works in a separate git worktree on its own branch. Your main branch stays as it was, and a PR opens only when you say so."],
       ["What languages does it speak?", "English and Russian. One setting switches the screens, the assistant and the voice, on the Mac and the phone alike."],
@@ -194,11 +207,11 @@ const copy = {
     dir: "../",
     other: { href: "../", label: "EN", name: "English" },
     title: "Walkship — ушёл гулять, вернулся к готовому PR",
-    description: "Голосовой партнёр для твоих проектов. Обсуждаешь фичу на прогулке, Walkship собирает спецификацию, а Claude Code или Codex реализует её на твоём Mac.",
+    description: "Голосовой партнёр для твоих проектов. Обсуждаешь фичу или новую идею на прогулке, Walkship собирает спецификацию, а Claude Code или Codex реализует её на твоём Mac.",
     nav: { how: "Как это работает", features: "Возможности", privacy: "Приватность", faq: "Вопросы", download: "Скачать" },
     eyebrow: "Голосовой партнёр для твоих проектов",
     h1: "Ушёл гулять —<br>вернулся к готовому PR.",
-    sub: "Обсуждаешь фичу голосом на прогулке. Walkship собирает из разговора спецификацию, а твой агент — Claude Code или Codex — реализует её на твоём Mac.",
+    sub: "Обсуждаешь фичу или новую идею голосом на прогулке. Walkship собирает из разговора спецификацию, а твой агент — Claude Code или Codex — реализует её на твоём Mac.",
     mac: "Скачать для Mac",
     apk: "APK для Android",
     caption: "Бета · Mac с Apple Silicon, macOS 14+ · нужен Claude Code или Codex",
@@ -225,6 +238,16 @@ const copy = {
       ],
       note: "Серверов Walkship и аккаунтов нет.",
     },
+    ideaLabel: "До кода",
+    ideaTitle: "Начни с идеи. Код подключишь, когда он появится.",
+    ideaSub: "Продукт часто начинается с разговора — задолго до репозитория. Walkship ведёт его от первой прогулки до первого PR.",
+    idea: [
+      "Проект можно начать без кода: идея, которую обсуждаешь за несколько прогулок, — с памятью, заметками и итогами",
+      "Пресет «Продукт» задаёт ассистенту нужные привычки: отделять проверенное от догадок и держать фокус на первой версии",
+      "Вместо фич итоги ведут список задач с галочками — и на Mac, и на телефоне",
+      "Появился репозиторий — «Подключить код» привязывает папку: обсуждения и задачи остаются, а задачи можно отдать агенту",
+      "Не только код: пресеты для поездки, ремонта, переезда и события — те же разговоры, память и итоги",
+    ],
     featLabel: "Возможности",
     featTitle: "Всё, что нужно прогулке с мыслями",
     features: [
@@ -236,7 +259,7 @@ const copy = {
       ["mac", "Продолжить на Mac", "Спецификация или расшифровка открывается в Claude Code, Cursor или Codex одним нажатием."],
       ["mcp", "MCP для твоих агентов", "Claude Code, Cursor и Codex в репозитории видят идеи, решения и фичи проекта."],
       ["plug", "Внешние MCP-серверы", "Подключи Jira, Sentry или базу данных — ассистент будет пользоваться ими в разговоре."],
-      ["offline", "Без связи ничего не теряется", "Сказанная фраза ждёт на телефоне и уходит сама, когда сервер снова доступен."],
+      ["offline", "Когда Mac недоступен", "Сказанная фраза ждёт на телефоне и уходит сама, когда Mac вернётся. А можно продолжить разговор через модель по своему ключу — потом всё переедет на Mac."],
     ],
     agentsLabel: "Claude или Codex",
     agentsTitle: "Твой агент и твоя подписка — для каждой роли",
@@ -247,12 +270,13 @@ const copy = {
       "Лимиты обеих подписок рядом, на Mac и на телефоне",
     ],
     privLabel: "Приватность",
-    privTitle: "Всё на твоём Mac. И больше нигде.",
+    privTitle: "Твой Mac, твои аккаунты. Никакого облака Walkship.",
     privacy: [
       "Код уходит только агентам, которыми ты и так пользуешься, — Claude Code или Codex — через их локальные CLI под твоим логином. Ключи API не нужны.",
       "Никаких аккаунтов и облака Walkship. Сервер, база и голоса работают на Mac.",
       "Распознавание речи — Whisper на Mac и системное на телефоне. Голос ассистента — нейро-голоса, тоже локально.",
       "Телефон подключается к Mac по QR-коду — через домашнюю сеть или Tailscale.",
+      "Mac недоступен? Телефон может продолжить через модель, которую ты настроил со своим ключом, — DeepSeek или любой API в стиле OpenAI, хоть свой Ollama, — прямо с телефона.",
       "Основная ветка не трогается: агент работает в отдельном worktree, а PR открываешь ты.",
     ],
     reqLabel: "Требования",
@@ -263,6 +287,7 @@ const copy = {
       "Около 5 ГБ свободного места — голосовой пакет занимает ~3,3 ГБ",
       "git, для пул-реквестов — <code>gh</code> (GitHub CLI)",
       "По желанию — iPhone или телефон на Android и Tailscale, чтобы говорить вне дома",
+      "По желанию — ключ API DeepSeek или другой модели в стиле OpenAI, чтобы говорить с телефона, пока Mac недоступен",
       "Интерфейс и голос: русский или английский — одна настройка на всё",
     ],
     dlTitle: "Возьми следующую идею на прогулку",
@@ -272,9 +297,10 @@ const copy = {
     qr: "Открыл страницу на Mac? Наведи сюда камеру телефона на Android, чтобы скачать на него APK.",
     faqLabel: "Вопросы",
     faq: [
-      ["Нужен ключ API?", "Нет. Всё идёт через Claude Code или Codex по твоей подписке Claude или ChatGPT."],
+      ["Нужен ключ API?", "С Mac — нет: всё идёт через Claude Code или Codex по твоей подписке Claude или ChatGPT. Ключ нужен, только чтобы говорить с телефона, пока Mac недоступен, — для DeepSeek или любого API в стиле OpenAI."],
       ["Можно вместо Claude Code использовать Codex?", "Да, для всего: в «Настройки → Агенты и модели» у разговора, итогов и реализации свой выбор — Claude или Codex и модель. Если у одной подписки кончится лимит, ассистент предложит продолжить на другой."],
-      ["Куда уходит мой код?", "Только агентам, которыми ты пользуешься, — Claude Code или Codex — так же, как если бы ты запускал их сам. У Walkship нет своего сервера в облаке."],
+      ["Куда уходит мой код?", "Только агентам, которыми ты пользуешься, — Claude Code или Codex — так же, как если бы ты запускал их сам. Когда говоришь с телефона без Mac, то, что читает ассистент, уходит в модель, которую ты настроил со своим ключом. У Walkship нет своего сервера в облаке."],
+      ["Что, если Mac выключен?", "Телефон предложит продолжить через твою модель. Он помнит, что Mac знал о проекте, — прошлые итоги, фичи, заметки — и читает код с GitHub, если ты вошёл. Когда Mac вернётся, всё сказанное переедет на него, а фича, которую ты попросил реализовать, запустится там."],
       ["Есть версия для iPhone?", "Да, она скоро появится в App Store. Android уже есть — APK на странице загрузки, а на Mac можно говорить прямо в приложении."],
       ["Агент не сломает мой репозиторий?", "Он работает в отдельном git worktree на своей ветке. Основная ветка остаётся как была, а PR открывается только по твоей команде."],
       ["На каких языках?", "На русском и английском. Одна настройка переключает экраны, ассистента и голос — и на Mac, и на телефоне."],
@@ -466,6 +492,17 @@ function page(c) {
       <div class="window-bar"><i></i><i></i><i></i></div>
       ${shot(c, "mac-board", c.features[1][1], "window-shot")}
     </div>
+  </div>
+</section>
+
+<section id="idea" class="section">
+  <div class="wrap">
+    <p class="label">${c.ideaLabel}</p>
+    <h2>${c.ideaTitle}</h2>
+    <p class="sub">${c.ideaSub}</p>
+    <ul class="ticks ticks-2">
+      ${c.idea.map((p) => `<li>${icon("check")}<span>${p}</span></li>`).join("\n      ")}
+    </ul>
   </div>
 </section>
 

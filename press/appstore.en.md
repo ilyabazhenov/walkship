@@ -20,13 +20,13 @@ Walk, talk, come back to a PR
 ## Promotional text (170)
 
 ```
-Talk a feature through on a walk. Walkship turns the conversation into a spec, and your coding agent builds it on your Mac. Come back to a pull request.
+Talk a feature or a new idea through on a walk. Walkship turns the talk into a spec, and your coding agent builds it on your Mac. Come back to a pull request.
 ```
 
 ## Description (4000)
 
 ```
-Walkship is a voice partner for your software projects. Talk a feature through while you walk — the assistant knows your code, its git history and your past discussions. It turns the conversation into a spec, and your coding agent builds it on your Mac. You come back to a pull request.
+Walkship is a voice partner for your software projects. Talk a feature or a new product idea through while you walk — the assistant knows your code, its git history and your past discussions. It turns the conversation into a spec, and your coding agent builds it on your Mac. You come back to a pull request.
 
 HOW IT WORKS
 • You talk. Hands-free: speak, pause, and the assistant answers out loud, then listens again. Tap to interrupt at any moment, or type instead.
@@ -39,7 +39,8 @@ EVERYTHING A THINKING WALK NEEDS
 • Memory — "What did we decide about settings?" The assistant finds it in past discussions of any project.
 • Digest — one button, and you hear what agents finished, where they failed and what's still open.
 • Mockups — "Show me what the screen would look like", right in the conversation.
-• Nothing lost offline — a phrase you said waits on the phone and goes out once your Mac is reachable.
+• Ideas before code — start a project without a repository and connect the code once it exists; to-dos then go to an agent. Presets for a trip, a renovation, a move or an event too.
+• When the Mac is out of reach — a phrase you said waits on the phone, or go on talking through a model with your own API key; everything moves to the Mac once it's back.
 • English and Russian — one setting for the screens, the assistant and the voice.
 
 WHAT YOU NEED
@@ -47,9 +48,10 @@ Walkship on iPhone is the companion to the free Walkship app for Mac, which does
 • A Mac with Apple Silicon and macOS 14 or later, with Walkship for Mac from ilyabazhenov.github.io/walkship
 • Claude Code with a Claude subscription, or Codex with a ChatGPT subscription — one is enough
 • The phone pairs with the Mac by QR code, over your home network or Tailscale away from home
+• Optional: your own API key for DeepSeek or another OpenAI-style model, to keep talking while the Mac is out of reach
 
 PRIVATE BY DESIGN
-No accounts, no Walkship servers, no analytics, no ads. Your conversations and projects stay on your Mac; your code goes only to the agent you already use, under your own login. Your main branch stays untouched — the agent works in its own git worktree, and a pull request opens only when you say so.
+No accounts, no Walkship servers, no analytics, no ads. Your conversations and projects stay on your Mac; your code goes only to the agent you already use, under your own login. Without the Mac, the phone keeps them itself and talks straight to the model you set up with your own key. Your main branch stays untouched — the agent works in its own git worktree, and a pull request opens only when you say so.
 ```
 
 ## Keywords (100)
@@ -69,7 +71,7 @@ voice,ai,coding,agent,assistant,developer,programmer,spec,code,git,ideas,notes,b
 App Store Connect → App Review → Notes. "Sign-in required" stays off: there are no accounts, the demo opens without one.
 
 ```
-Walkship is the iPhone companion to Walkship for Mac, a free app the user runs on their own Mac (like the Plex or Home Assistant apps, which talk to a server the user hosts). The Mac does the work: it runs the user's own Claude Code or Codex under the user's own subscription. There are no Walkship accounts and no Walkship servers.
+Walkship is the iPhone companion to Walkship for Mac, a free app the user runs on their own Mac (like the Plex or Home Assistant apps, which talk to a server the user hosts). The Mac does the work: it runs the user's own Claude Code or Codex under the user's own subscription. When the Mac is out of reach, the phone can go on by itself with an OpenAI-compatible model the user sets up with their own API key (DeepSeek preset), and optionally read code from GitHub after a sign-in; everything moves to the Mac once it's back. There are no Walkship accounts and no Walkship servers.
 
 HOW TO REVIEW WITHOUT A MAC — the built-in demo
 1. On first launch, read the notice about where conversations go and tap "Agree and continue".
@@ -88,12 +90,12 @@ PERMISSIONS AND CONFIGURATION
 - Microphone and Speech Recognition: to hear the user during a conversation. Nothing is recorded in the background and no audio is stored.
 - Local Network: to connect to the Walkship app on the user's own Mac.
 - Background audio (UIBackgroundModes: audio): during a hands-free conversation on a walk, the assistant's reply keeps playing after the screen locks.
-- NSAllowsArbitraryLoads: the app connects only to the server the user runs on their own Mac, by a local-network or Tailscale address over plain HTTP, which cannot have a public TLS certificate. The app contacts no third-party hosts itself.
-- Photo Library usage string: required at upload because a system file library links the photo APIs. The app never requests this permission and never accesses photos.
+- NSAllowsArbitraryLoads: the app connects to the server the user runs on their own Mac, by a local-network or Tailscale address over plain HTTP, which cannot have a public TLS certificate; the same applies to a model the user may run on their own network (Ollama, LM Studio). Beyond that, the app contacts only services the user sets up: the model API they entered a key for, and GitHub if they sign in.
+- Photo Library and Camera: to send a screenshot or a photo the user picks to the assistant, as part of the conversation.
 - Notifications: optional, to tell the user when a coding agent has finished.
 
 PRIVACY
-No accounts, no analytics, no ads, no tracking. Conversations and projects stay on the user's Mac. The Mac sends conversation text to Anthropic (Claude) or OpenAI (ChatGPT/Codex) under the user's own account; the app explains this on first launch and asks for agreement (guideline 5.1.2(i)). Privacy policy: https://ilyabazhenov.github.io/walkship/privacy/
+No accounts, no analytics, no ads, no tracking. Conversations and projects stay on the user's Mac. The Mac sends conversation text to Anthropic (Claude) or OpenAI (ChatGPT/Codex) under the user's own account; the app explains this on first launch and asks for agreement (guideline 5.1.2(i)). Without the Mac, the phone sends the conversation straight to the model service the user set up with their own key, and asks for agreement before the first such conversation. Privacy policy: https://ilyabazhenov.github.io/walkship/privacy/
 ```
 
 ## App information
