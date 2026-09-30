@@ -139,7 +139,7 @@ const copy = {
     storyTitle: "Why “Walkship”",
     story: "<em>Walk</em> + <em>ship</em>. Aristotle discussed ideas while pacing the Lyceum’s colonnade, Darwin thought while circling his Sandwalk path. Those walks used to end in forgotten ideas. A walk with Walkship ends in a pull request.",
     footer: { releases: "Releases", issues: "Report a problem", press: "Press kit", privacy: "Privacy policy" },
-    alt: { mac: "Walkship on the Mac: the console with agents, conversations and open questions", phone: "Walkship on the phone" },
+    alt: { mac: "Walkship on the Mac: the console with agents, conversations and open questions", phone: "Walkship on the phone", idea: "A project without code on the Mac: a product idea with its to-dos, discussions and notes" },
     android: {
       title: "Walkship for Android",
       description: "Download the Walkship APK for Android and keep it up to date with Obtainium.",
@@ -309,7 +309,7 @@ const copy = {
     storyTitle: "Почему «Walkship»",
     story: "<em>Walk</em> + <em>ship</em>: гулять и выпускать. Аристотель обсуждал идеи, прохаживаясь по галерее Ликея, Дарвин думал, нарезая круги по тропе Sandwalk. Раньше такие прогулки заканчивались забытыми мыслями. Прогулка с Walkship заканчивается пул-реквестом.",
     footer: { releases: "Версии", issues: "Сообщить о проблеме", press: "Пресс-кит", privacy: "Политика конфиденциальности" },
-    alt: { mac: "Walkship на Mac: пульт с агентами, разговорами и открытыми вопросами", phone: "Walkship на телефоне" },
+    alt: { mac: "Walkship на Mac: пульт с агентами, разговорами и открытыми вопросами", phone: "Walkship на телефоне", idea: "Проект без кода на Mac: идея продукта с задачами, обсуждениями и заметками" },
     android: {
       title: "Walkship для Android",
       description: "Скачай APK Walkship для Android и обновляй его через Obtainium.",
@@ -496,13 +496,19 @@ function page(c) {
 </section>
 
 <section id="idea" class="section">
-  <div class="wrap">
-    <p class="label">${c.ideaLabel}</p>
-    <h2>${c.ideaTitle}</h2>
-    <p class="sub">${c.ideaSub}</p>
-    <ul class="ticks ticks-2">
-      ${c.idea.map((p) => `<li>${icon("check")}<span>${p}</span></li>`).join("\n      ")}
-    </ul>
+  <div class="wrap split">
+    <div>
+      <p class="label">${c.ideaLabel}</p>
+      <h2>${c.ideaTitle}</h2>
+      <p class="sub">${c.ideaSub}</p>
+      <ul class="ticks">
+        ${c.idea.map((p) => `<li>${icon("check")}<span>${p}</span></li>`).join("\n        ")}
+      </ul>
+    </div>
+    <div class="window window-side">
+      <div class="window-bar"><i></i><i></i><i></i></div>
+      ${shot(c, "mac-idea", c.alt.idea, "window-shot")}
+    </div>
   </div>
 </section>
 

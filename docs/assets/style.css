@@ -198,8 +198,6 @@ p { margin: 0; }
 .ticks { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 18px; }
 .ticks li { display: grid; grid-template-columns: 24px 1fr; gap: 14px; color: var(--muted); }
 .ticks .i { width: 20px; height: 20px; color: var(--accent); margin-top: 4px; }
-/* A text-only list across two columns, for a section without a screenshot. */
-.ticks-2 { grid-template-columns: 1fr 1fr; column-gap: 64px; row-gap: 22px; margin-top: 44px; }
 
 .panel {
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
@@ -268,7 +266,6 @@ p { margin: 0; }
   .flow-out:nth-child(2) > * { grid-column: 2; }
   .flow-note { text-align: center; }
   .grid { grid-template-columns: 1fr 1fr; }
-  .ticks-2 { grid-template-columns: 1fr; }
   .split { gap: 48px; }
 }
 @media (max-width: 640px) {
