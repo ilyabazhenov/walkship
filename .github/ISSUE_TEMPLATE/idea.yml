@@ -1,0 +1,15 @@
+name: Idea · Идея
+description: Something Walkship could do · Что Walkship мог бы уметь
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea · Идея
+      description: What you'd like and the moment you'd need it · Чего хочется и в какой момент это нужно
+    validations:
+      required: true
+  - type: textarea
+    id: now
+    attributes:
+      label: How you do it now · Как сейчас обходитесь

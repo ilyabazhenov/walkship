@@ -1,0 +1,51 @@
+name: Something doesn't work · Ошибка
+description: Walkship misbehaves on the Mac or the phone · Что-то работает не так на Mac или телефоне
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for writing! Please don't paste tokens, keys or private code here — this repository is public.
+        Спасибо, что пишете! Не вставляйте сюда токены, ключи и закрытый код — репозиторий публичный.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened · Что случилось
+      description: What you did, what you expected, what you got · Что делали, чего ждали, что получилось
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Walkship version · Версия Walkship
+      description: At the bottom of Settings, or in the Mac menu bar · Внизу настроек или в строке меню на Mac
+      placeholder: "1.12.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where · Где
+      multiple: true
+      options:
+        - Mac
+        - Android
+        - iPhone / iPad
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent · Агент
+      options:
+        - Claude Code
+        - Codex
+        - Both · Оба
+        - Not related · Не связано
+  - type: textarea
+    id: details
+    attributes:
+      label: Details · Подробности
+      description: |
+        macOS / Android version, screenshots. On the Mac, Help → Report a problem saves a diagnostics zip to the Desktop — look it over, then drop it here.
+        Версия macOS / Android, скриншоты. На Mac «Справка → Сообщить о проблеме» сохраняет zip на Рабочий стол — посмотрите его и перетащите сюда.
