@@ -7,6 +7,7 @@ Every published version with its headline; the full notes are in each file and o
 
 | Version | Date | |
 |---|---|---|
+| [1.15.0](v1.15.0.md) | 2026-10-14 | **Claude's artifacts open inside Walkship, a «To the end» button in long chats, and Claude sessions on the home screen.**<br>Артефакты Claude открываются прямо в Walkship, кнопка «В конец» в длинных чатах и сессии Claude на главном экране. |
 | [1.14.0](v1.14.0.md) | 2026-10-11 | **Files from the phone in Claude sessions, a commit tree, and a stop button for Claude.**<br>Файлы с телефона в сессиях Claude, дерево коммитов и кнопка «Остановить» для Claude. |
 | [1.13.0](v1.13.0.md) | 2026-10-10 | **Claude Code sessions and git from the phone; tablets and the Mac get a proper big-screen layout.**<br>Сессии Claude Code и git с телефона; планшеты и Mac получили настоящую раскладку для большого экрана. |
 | [1.12.1](v1.12.1.md) | 2026-09-30 | **Away from home, more reliably and more safely; «The reply is ready» by push.**<br>Вне дома надёжнее и безопаснее; «Ответ готов» пушем. |
