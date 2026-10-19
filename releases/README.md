@@ -7,6 +7,7 @@ Every published version with its headline; the full notes are in each file and o
 
 | Version | Date | |
 |---|---|---|
+| [1.17.0](v1.17.0.md) | 2026-10-19 | **Walkship tells you when Claude is signed out, closes the gaps a security audit found, and its settings say what's true.**<br>Walkship сообщает, что вход в Claude слетел, закрывает дыры, найденные аудитом безопасности, а настройки говорят правду. |
 | [1.16.0](v1.16.0.md) | 2026-10-16 | **The feature board becomes a backlog of every project: «Now», «Next», «Later» in queue order.**<br>Доска фич стала бэклогом всех проектов: «Сейчас», «Дальше», «Потом» в порядке очереди. |
 | [1.15.0](v1.15.0.md) | 2026-10-14 | **Claude's artifacts open inside Walkship, a «To the end» button in long chats, and Claude sessions on the home screen.**<br>Артефакты Claude открываются прямо в Walkship, кнопка «В конец» в длинных чатах и сессии Claude на главном экране. |
 | [1.14.0](v1.14.0.md) | 2026-10-11 | **Files from the phone in Claude sessions, a commit tree, and a stop button for Claude.**<br>Файлы с телефона в сессиях Claude, дерево коммитов и кнопка «Остановить» для Claude. |
