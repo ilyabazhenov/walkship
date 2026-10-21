@@ -8,6 +8,8 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const REPO = "https://github.com/ilyabazhenov/walkship";
 const SITE = "https://walkship.app";
+// Cloudflare Web Analytics: cookieless page-view counter for the site (not the app).
+const ANALYTICS = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "415732898a164683a71fd81e17c5e301"}'></script>`;
 // Opens Obtainium on an Android phone with this repo ready to add; the redirect page helps browsers that block custom schemes.
 const OBTAINIUM = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO}`;
 
@@ -435,6 +437,7 @@ function page(c) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${d}assets/style.css">
+${ANALYTICS}
 </head>
 <body>
 <header class="top">
@@ -643,6 +646,7 @@ function subPage(c, slug, p, main, tail = "") {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${d}assets/style.css">
+${ANALYTICS}
 </head>
 <body>
 <header class="top">
