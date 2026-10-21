@@ -164,7 +164,7 @@ const copy = {
       description: "Walkship collects no personal data: no accounts, no analytics. Everything stays on your Mac; away from home the phone reaches it through a relay that can’t read what it carries.",
       label: "Privacy policy",
       h1: "Walkship doesn’t collect your data",
-      updated: "Last updated: October 1, 2026",
+      updated: "Last updated: October 21, 2026",
       lead: "Walkship has no accounts, no analytics, no ads and no tracking. Its only server is a relay that connects your phone to your Mac away from home, and it can’t read what passes through it. The developer receives nothing about you or your projects. This page explains where your data lives and what leaves your devices, so you can check it yourself.",
       sections: [
         ["Where your data lives", [
@@ -188,6 +188,7 @@ const copy = {
         ]],
         ["What the developer receives", [
           "Nothing. Walkship contains no analytics, no crash reporting, no advertising and no third-party tracking, and it doesn’t use the advertising identifier. The relay only passes encrypted data between your own devices and keeps no record of it. Nothing is sold or shared, because nothing is collected.",
+          "<b>This website.</b> walkship.app counts visits with Cloudflare Web Analytics. It sets no cookies, doesn’t fingerprint your browser and doesn’t follow you across sites; the developer sees only totals such as page views, referring sites and countries. Cloudflare’s <a href=\"https://www.cloudflare.com/privacypolicy/\">privacy policy</a> applies. The apps themselves contain no analytics.",
           "If you report a problem on GitHub, what you write there is public and handled under GitHub’s terms.",
         ]],
         ["Your control", [
@@ -335,7 +336,7 @@ const copy = {
       description: "Walkship не собирает персональные данные: ни аккаунтов, ни аналитики. Всё остаётся на твоём Mac; вне дома телефон достаёт до него через ретранслятор, который не может прочитать то, что передаёт.",
       label: "Политика конфиденциальности",
       h1: "Walkship не собирает твои данные",
-      updated: "Обновлено 1 октября 2026 года",
+      updated: "Обновлено 21 октября 2026 года",
       lead: "У Walkship нет аккаунтов, аналитики, рекламы и слежки. Единственный его сервер — ретранслятор, который соединяет телефон с Mac вне дома, и прочитать то, что через него идёт, он не может. Разработчик ничего не получает ни о тебе, ни о твоих проектах. Здесь описано, где хранятся данные и что уходит с твоих устройств, — чтобы это можно было проверить.",
       sections: [
         ["Где хранятся данные", [
@@ -359,6 +360,7 @@ const copy = {
         ]],
         ["Что получает разработчик", [
           "Ничего. В Walkship нет аналитики, отчётов о сбоях, рекламы и сторонней слежки, приложение не использует рекламный идентификатор. Ретранслятор только пересылает зашифрованные данные между твоими устройствами и ничего о них не хранит. Ничего не продаётся и не передаётся, потому что ничего не собирается.",
+          "<b>Этот сайт.</b> walkship.app считает посещения с помощью Cloudflare Web Analytics. Он не ставит cookies, не снимает отпечаток браузера и не следит за тобой на других сайтах; разработчик видит только общие цифры — просмотры страниц, сайты, с которых пришли, страны. Действует <a href=\"https://www.cloudflare.com/privacypolicy/\">политика конфиденциальности</a> Cloudflare. В самих приложениях аналитики нет.",
           "Если ты сообщишь о проблеме на GitHub, написанное там будет публичным и подчиняется правилам GitHub.",
         ]],
         ["Управление данными", [
